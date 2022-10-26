@@ -1,6 +1,23 @@
 # Despliegue de aplicaciones web
 
+> INDICE<br>
+[Implantación de arquitecturas web](#id1)<br>
+[Servidores web](#id2)<br>
+
+<div id='id1' /><br>
+
 ## Implantación de arquitecturas web
+
+><br>[Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ArquitecturasWeb/ArquitecturasWeb.pdf)<br><br>
+
+1. Introduccion
+2. Servicios en red y Protocolos
+3. Despliegue en Internet
+4. Servicios web y Aplicaciones web
+
+
+
+<div id='id2' /><br>
 
 ## Servidores web
 ><br>[Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ServidoresWeb.pdf)<br><br>
