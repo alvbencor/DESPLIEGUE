@@ -1,5 +1,17 @@
 # Python bajo Apache
 
+[Instalación del módulo python en apache](#id1)<br>
+[Creración de la estructura de la app](#id2)<br>
+[Creación del controlador](#id3)<br>
+[Configuración de VirtualHost](#id4)<br>
+[EJERCICIO 8 APUNTES](#id5)<br>
+
+<hr>
+<div id='id1' /><br>
+
+## Instalacion de módulo python
+
+
 En principio, necesitamos hacer que Apache, incorpore un soporte para servir archivos Python. Para ello, necesitaremos habilitarle un módulo, que brinde este soporte.
 
 Existen varios módulos de Apache que brindan soporte para correr archivos Python. Usaremos el módulo mod-wsgi-py3. Para habilitarlo, instalamos el paquete libapache2-mod-wsgi-py3:
@@ -7,6 +19,10 @@ Existen varios módulos de Apache que brindan soporte para correr archivos Pytho
 ~~~
 sudo apt-get -y install libapache2-mod-wsgi-py3
 ~~~
+<div id='id2' /><br>
+
+## Creación de la estructura de la aplicación
+
 
 Después, necesitamos un **directorio destinado a montar toda la aplicacion** y la diviremos en dos partes. Por una parrte tendremos una carpeta destinada a servir la aplicacion publicamente y por otro una carpeta privada (directorio no servido) dedicado al almacenaje de la aplicacion. Añadiremos una tercera carpeta para almacenar los logs de errores y accesos de nuestra app.
 
@@ -17,6 +33,10 @@ mkdir directorio/miAplicacion/app
 mkdir directorio/miAplicacion/public_html
 mkdir directorio/miAplicacion/logs
 ~~~
+<div id='id3' /><br>
+
+## Creación de un controlador para la aplcación
+
 Necesitamos un **controlador** para la aplicación, para manejar las peticiones del usuario (las URI a las cuales el usuario accede a través del navegador).
 
 Este archivo controller.py actuará como un pseudo front controller, siendo el encargado de manejar todas las peticiones del usuario, haciendo la llamada a los módulos correspondientes según la URI solicitada.
@@ -38,8 +58,9 @@ def application(environ, start_response):
     # Retorno el contenido HTML 
     return output
 ~~~
+<div id='id4' /><br>
 
-Configuramos el VirtualHost
+## Configuramos el VirtualHost
 
 En la buena configuración de nuestro VirtualHost, estará la clave para correr nuestra aplicación Python a través de la Web.
 
@@ -76,8 +97,12 @@ Habilitamos el sitio en nuestro host: sudo nano /etc/hosts y allí agregamos la 
 
 A partir de ahora, si abrimos nuestro navegador Web e ingresamos la url http://miAplicaion veremos la frase: "Bienvenido a mi PythonApp".
 
+> Nota<br><br>
+Agregar un nuevo hostname a nuestro /etc/hosts nos permitirá seguir trabajando normalmente con nuestro localhost, sin que nuestras aplicaciones Python interfieran con otras, ya sean webs estáticas en HTML o dinámicas en PHP u otro lenguaje.
 
-## Ejercicio 8 apuntes
+<div id='id5' /><br>
+
+# Ejercicio 8 apuntes
 
 - ¿Cuál es el módulo que se instala y activa para poder desplegar aplicaciones
 desarrolladas con Python?
