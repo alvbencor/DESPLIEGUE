@@ -1,4 +1,4 @@
-## Ejercicio 10
+# Ejercicio 10
 
 >  Para algún host virtual de los que tengas creados, asigna autenticación (de alguna de
 las formas que se ha visto) a dos carpetas diferentes del directorio (si no tienes crea
