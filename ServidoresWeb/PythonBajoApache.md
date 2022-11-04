@@ -26,13 +26,15 @@ sudo apt-get -y install libapache2-mod-wsgi-py3
 Después, necesitamos un **directorio destinado a montar toda la aplicacion** y la diviremos en dos partes. Por una parrte tendremos una carpeta destinada a servir la aplicacion publicamente y por otro una carpeta privada (directorio no servido) dedicado al almacenaje de la aplicacion. Añadiremos una tercera carpeta para almacenar los logs de errores y accesos de nuestra app.
 
 ~~~
-mkdir directorio/miAplicacion
+mkdir var/www/miapp
 
-mkdir directorio/miAplicacion/app
-mkdir directorio/miAplicacion/public_html
-mkdir directorio/miAplicacion/logs
+mkdir var/www/miapp/app
+mkdir var/www/miapp/public_html
+mkdir var/www/miapplogs
 ~~~
 <div id='id3' /><br>
+
+
 
 ## Creación de un controlador para la aplcación
 
@@ -45,7 +47,7 @@ Dicho módulo, solo se encargará de definir una función, que actúe con cada p
 1. Deberá llamarse **application**
 2. Deberá recibir dos parámetros: environ, del módulo os, que provee un diccionario de las peticiones HTTP estándar y otras variables de entorno, y la función start_response, de WSGI, encargada de entregar la respuesta HTTP al usuario.
 ~~~
-echo '# -*- coding: utf-8 -*-' > miAplicacion/controller.py
+echo '# -*- coding: utf-8 -*-' > miapp/app/controller.py
 ~~~
 
 ~~~
@@ -66,7 +68,7 @@ En la buena configuración de nuestro VirtualHost, estará la clave para correr 
 Mientras que el DocumentRoot de nuestro sitio Web, será la carpeta pública, public_html, una variable del VirtualHost, será la encargada de redirigir todas las peticiones públicas del usuario, hacia nuestro front controller. Y la variable que se encargue de esto, será el alias WSGIScriptAlias:
 
 ~~~
-sudo nano /etc/apache2/sites-available/python-web
+sudo nano /etc/apache2/sites-available/miapp.conf
 ~~~
 
 Una vez allí, escribimos el contenido del nuevo virtual host:
@@ -88,13 +90,48 @@ Una vez allí, escribimos el contenido del nuevo virtual host:
 </VirtualHost>
 
 ~~~
+Para solucionar el problema de algunos compañeros de clase: introducir en el diretory:
+
+~~~
+<Directory /> 
+    Options FollowSymLinks 
+    AllowOverride none
+    Require all granted
+  </Directory> 
+~~~
 Una vez configurado nuestro VirtualHost:
 
-Habilitamos el sitio web: sudo a2ensite python-web
-Recargamos Apache: sudo service apache2 reload
-Habilitamos el sitio en nuestro host: sudo nano /etc/hosts y allí agregamos la siguiente línea: 127.0.0.1python-web
+Habilitamos el sitio web: 
+~~~
+sudo a2ensite miapp
+~~~
+En caso de que de error, para deshabilitar:
+~~~
+sudo a2dissite miapp
+~~~
 
-A partir de ahora, si abrimos nuestro navegador Web e ingresamos la url http://miAplicaion veremos la frase: "Bienvenido a mi PythonApp".
+Pedirá activar la nueva configuración:
+~~~
+systemctl reload apache2
+~~~
+
+Recargamos Apache: 
+~~~
+sudo service apache2 reload
+~~~
+Habilitamos el sitio en nuestro host: 
+~~~
+sudo nano /etc/hosts y allí agregamos la siguiente línea: 127.0.0.1 miapp
+~~~
+
+> Error Internal Server<br>
+The server encountered an internal error or misconfiguration and was unable to complete your request.
+
+Please contact the server administrator at [no address given] to inform them of the time this error occurred, and the actions you performed just before this error.
+
+More information about this error may be available in the server error log.
+Apache/2.4.52 (Ubuntu) Server at miapp Port 80
+
 
 > Nota<br><br>
 Agregar un nuevo hostname a nuestro /etc/hosts nos permitirá seguir trabajando normalmente con nuestro localhost, sin que nuestras aplicaciones Python interfieran con otras, ya sean webs estáticas en HTML o dinámicas en PHP u otro lenguaje.
