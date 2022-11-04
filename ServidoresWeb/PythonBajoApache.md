@@ -124,11 +124,17 @@ Habilitamos el sitio en nuestro host:
 sudo nano /etc/hosts y allí agregamos la siguiente línea: 127.0.0.1 miapp
 ~~~
 
+## Error Internal Server
+
+A la hora de introducir en el navegador http://miapp nos da el siguiente error.
+
 > **Error Internal Server**<br>
 The server encountered an internal error or misconfiguration and was unable to complete your request.
 Please contact the server administrator at [no address given] to inform them of the time this error occurred, and the actions you performed just before this error.
 More information about this error may be available in the server error log.
 Apache/2.4.52 (Ubuntu) Server at miapp Port 80
+
+**Al buscar la información en el archivo de logs de apache, aunque no especifica, se debe a la incompatibilidad de la version de python con el módulo instalado.**
 
 
 > **Nota**<br><br>
