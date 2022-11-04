@@ -46,6 +46,25 @@ sudo chown www-data:www-data /etc/apache2/.htpasswd
 ~~~
 
 
+~~~
+
+<VirtualHost *:80>
+  ServerAdmin hola@alvarobenito.es
+  DocumentRoot /var/www/pagina.com/public_html
+  ServerName pagina.com
+  ServerAlias www.pagina.com
+  ErrorLog /var/www/pagina.com/logs/errors.log
+  CustomLog /var/www/pagina.com/logs/access.log combined
+
+  <Directory "/var/www/pagina.com/usuarios">
+    AuthType Basic
+    AuthName "Acceso Restringido a usuarios"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require valid-user
+  </Directory>
+</VirtualHost>
+~~~
+
 
 
 
