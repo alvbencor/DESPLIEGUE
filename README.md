@@ -28,6 +28,9 @@
 5. Configuración de Apache
 6. Creación de host virtuales (hosting compartido)
 7. [Instalación y configuración de módulos - Python - Ejercicio 8](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio8.md)<br>
-  - [Python bajo apache. Guia de instalación y configuración](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)
+  - [Python bajo apache. Guia de instalación y configuración](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)<br>
+  7.1 Autenticación http<br>
+  
+  
 8. Personalizar las páginas de error
 9. Configurar SSL/TLS en Apache
