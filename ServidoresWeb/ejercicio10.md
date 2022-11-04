@@ -45,26 +45,50 @@ Asignamos:
 sudo chown www-data:www-data /etc/apache2/.htpasswd
 ~~~
 
+En las páginas que queramos asignar permisos tenemos que incluir en 
+~~~
+sudo nano /etc/apache2/sites-available/pagina.es.conf
+~~~
+las directivas:
+- AuthType Basic
+- AuthName
+- AuthUserFile
+- Require (usuario válido)
+
+
 
 ~~~
 
 <VirtualHost *:80>
   ServerAdmin hola@alvarobenito.es
-  DocumentRoot /var/www/pagina.com/public_html
+  DocumentRoot /var/www/pagina.es
   ServerName pagina.com
-  ServerAlias www.pagina.com
-  ErrorLog /var/www/pagina.com/logs/errors.log
-  CustomLog /var/www/pagina.com/logs/access.log combined
+  ServerAlias www.pagina.es
+  ErrorLog /var/www/pagina.es/logs/errors.log
+  CustomLog /var/www/pagina.es/logs/access.log combined
 
-  <Directory "/var/www/pagina.com/usuarios">
-    AuthType Basic
-    AuthName "Acceso Restringido a usuarios"
-    AuthUserFile /etc/apache2/.htpasswd
-    Require valid-user
-  </Directory>
+        <Directory "/var/www/pagina.es/">
+                AuthType Basic
+                AuthName "Acceso Restringido a usuarios"
+                AuthUserFile /etc/apache2/.htpasswd
+                Require user fati
+        </Directory>
+
+        <Directory "/var/www/pagina.es/private/">
+                AuthType Basic
+                AuthName "Acceso Restringido a usuarios"
+                AuthUserFile /etc/apache2/.htpasswd
+                Require user alvaro
+        </Directory>
 </VirtualHost>
+st>
 ~~~
 
+Recargamos apache y debería de funcionar si las rutas y permisos son correctos:
+ 
+~~~
+sudo service apache2 restart
+~~~
 
 
 
