@@ -1,6 +1,6 @@
 # Despliegue de aplicaciones web
 
-> INDICE<br>
+> **INDICE**<br><br>
 [Implantación de arquitecturas web](#id1)<br>
 [Servidores web](#id2)<br>
 
@@ -29,7 +29,11 @@
 6. Creación de host virtuales (hosting compartido)
 7. [Instalación y configuración de módulos - Python - Ejercicio 8](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio8.md)<br>
   - [Python bajo apache. Guia de instalación y configuración](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)<br>
+  - [Ejercicio 9 - Pendiente]()<br>
   7.1 Autenticación http<br>
+  7.2 Autenticación HTTP con .htaccess
+  - [Ejercicio 10 - Pendiente]()<br>
+  
   
   
 8. Personalizar las páginas de error
