@@ -4,6 +4,8 @@
 las formas que se ha visto) a dos carpetas diferentes del directorio (si no tienes crea
 alguna) y da permisos de acceso a sendos usuarios.
 
+## Creamos usuarios
+
 Instalamos el paquete **apache2 utils** si no lo está
 ~~~
 sudo apt-get update
@@ -24,6 +26,8 @@ Pedirá introducir y confirmar contraseña.
 ~~~
 sudo nano /etc/apache2/envvars
 ~~~
+
+## Asignamos permisos
 
 ~~~
 # Since there is no sane way to get the parsed apache2 config in scripts, some
@@ -54,9 +58,11 @@ las directivas:
 - AuthName
 - AuthUserFile
 - Require (usuario válido)
+- 
 
-
-
+>  Como en el momento de hacer este ejercicio no tenía ninguna web en el servidor de apache, cree www.pagina.es<br>
+Ver proceso [**aquí**]()
+>
 ~~~
 
 <VirtualHost *:80>
