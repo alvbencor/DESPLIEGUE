@@ -32,7 +32,7 @@
   - [Ejercicio 9 - Pendiente](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)<br>
   7.1 Autenticación http<br>
   7.2 Autenticación HTTP con .htaccess
-  - [Ejercicio 10 - Pendiente]()<br>
+  - [Ejercicio 10 - Permisos de acceso http]()<br>
   
   
   
