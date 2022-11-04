@@ -23,14 +23,14 @@ sudo apt-get -y install libapache2-mod-wsgi-py3
 ## Creación de la estructura de la aplicación
 
 
-Después, necesitamos un **directorio destinado a montar toda la aplicacion** y la diviremos en dos partes. Por una parrte tendremos una carpeta destinada a servir la aplicacion publicamente y por otro una carpeta privada (directorio no servido) dedicado al almacenaje de la aplicacion. Añadiremos una tercera carpeta para almacenar los logs de errores y accesos de nuestra app.
+Después, necesitamos un **directorio destinado a montar toda la aplicacion** y la diviremos en dos partes. Por una parrte tendremos una carpeta destinada a servir la aplicacion publicamente y por otro una carpeta privada (directorio no servido) dedicado al almacenaje de la aplicacion. Añadiremos una tercera carpeta para almacenar los logs de errores y accesos de nuestra app. Los ficheros los creará automáticamente.
 
 ~~~
 mkdir var/www/miapp
 
 mkdir var/www/miapp/app
 mkdir var/www/miapp/public_html
-mkdir var/www/miapplogs
+mkdir var/www/miapp/logs
 ~~~
 <div id='id3' /><br>
 
