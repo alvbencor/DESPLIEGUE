@@ -97,6 +97,46 @@ sudo service apache2 restart
 ~~~
 
 
+# Autenticación con .htaccess
+
+Modificamos el fichero de configuración de Apache
+~~~
+sudo nano /etc/apache2/apache2.conf
+~~~
+Y cambiamos en el directorio /var/www/ AllowOverride **All**, permitiendo que la política sobre
+dicho directorio sea diferente si así se define con algún fichero .htaccess
+
+~~~
+<Directory />
+        Options FollowSymLinks
+        AllowOverride None
+        Require all denied
+</Directory>
+
+<Directory /usr/share>
+        AllowOverride None
+        Require all granted
+</Directory>
+
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+~~~
+Y, ya en el directorio que se quiere proteger, se incluye un fichero .htaccess con el
+siguiente contenido:
+
+~~~
+AuthType Basic
+AuthName "Acceso restringido a monguers"
+AuthUserFile /etc/apache2/.htpasswd
+Require user fati
+~~~
+
+En este caso, el usuario que puede acceder es *fati*
+
+
 
 
 
