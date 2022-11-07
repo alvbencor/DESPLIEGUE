@@ -1,5 +1,8 @@
 # Ejercicio 10
 
+Autenticación HTTP<br>
+[Autenticación con .htaccess](#htaccess)
+
 >  Para algún host virtual de los que tengas creados, asigna autenticación (de alguna de
 las formas que se ha visto) a dos carpetas diferentes del directorio (si no tienes crea
 alguna) y da permisos de acceso a sendos usuarios.
@@ -96,6 +99,7 @@ Recargamos apache y debería de funcionar si las rutas y permisos son correctos:
 sudo service apache2 restart
 ~~~
 
+<div id="htaccess"></div>
 
 # Autenticación con .htaccess
 
