@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: crimson;
+    color: rgb(255, 249, 159);
+}
+
+h1 {
+    font-size: 404px;
+    margin: 0;
+
+}
+
+h2{
+    font-size: 4rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
