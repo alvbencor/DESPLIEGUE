@@ -41,12 +41,12 @@ ejemplo (y que puedas reproducir de alguna manera). <br><br>
 
 ## Certificado SSL/TLS
 
-1. Crear carpeta: 
+### Crear carpeta: 
 ~~~
 alvaro@alvaro:/etc/apache2/certs$ sudo mkdir certs
 ~~~
 
-2. Creamos el certificado con su clave:
+### Creamos el certificado con su clave:
 
 ~~~
 sudo openssl req -x509 -days 365 -newkey rsa:2048 -keyout /etc/apache2/certs/apache2.key -out /etc/apache2/certs/apache2.crt
@@ -56,7 +56,7 @@ Introducimos los campos requeridos del certificado.
 
 
 
-3. Editamos el .conf de la pagina:
+### Editamos el .conf de la pagina:
 
 Cambiamos el puerto del virtual host:
 
