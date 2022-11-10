@@ -38,3 +38,5 @@
   
 8. Personalizar las páginas de error
 9. [Configurar SSL/TLS en Apache](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ConfigurarSSL.md)
+
+  - [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio11.md)<br> 
