@@ -171,14 +171,6 @@ Por defecto, almacenará informacion de cada petición que llegue al servidor
 Por defecto, en se almacena información de los errores que se produzcan
 
 
-## Configuración de Apache
-
-### apache2.conf
-
-
-
-### ports.conf
-
 
 
 
