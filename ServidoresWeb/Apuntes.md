@@ -95,7 +95,6 @@ Y para habilitarlo de nuevo:
 
 
 ## <a name="impordir">Directorios importantes</a>
-## Directorios importantes
 
 ### Contenido
 
