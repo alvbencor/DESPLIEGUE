@@ -68,9 +68,15 @@ Y para habilitarlo de nuevo:
 ### Contenido
 
 Ir a la carpeta raiz:
+    
     cd /var/www/html
 
 Aquí es donde se encuentra la página de bienvenida de apache (index.html) que puede ser configurada como una pagina estática.
+
+Esta página está referenciada en 
+
+    cd /etc/apache2/sites-available/000-default.conf
+    
 
 ### Configuracion del servidor
 
@@ -95,6 +101,7 @@ Contiene la configuracion de los puertos donde apache escucha
 
 #### conf-available
 Contiene ficheros de configuracion adicionales para diferentes aspectos de Apache o de aplicaciones web como *phpMyAdmin*
+    
     cd /etc/apache2/conf-available
 
 #### conf-enabled
@@ -111,10 +118,60 @@ Contiene enlaces simbólicos a aquellos módulos de Apache que se encuentran act
 #### sites-available
 Contiene los ficheros de configuracion de cada uno de los host virtuales configurados y disponibles (activos o no) Se crean utilizando los comandos pertinentes.
 
-# sites-enabled
+#### sites-enabled
 Contiene enlaces simbólicos a los ficheros de configuracion cuyos hosts virtuales se encuentran activos en este momento. 
 
-### ***Logs* del servidor
+### *Logs* del servidor
+
+Los ficheros de log se encuentran en 
+
+    cd /var/log/apache2
+    
+
+#### access.log
+Por defecto, almacenará informacion de cada petición que llegue al servidor
+
+#### error.log
+Por defecto, en se almacena información de los errores que se produzcan
+
+
+## Configuración de Apache
+
+### apache2.conf
+
+Se trata del fichero de configuracion principal de apache.
+
+Para establecer el **modelo de seguridad** que se aplicará por defecto:
+
+    <Directory/>
+        Options Indexes FollowSymlinks
+        AllowOverride None
+        Require all granted
+      </Directory>
+ 
+AccessFieName .htaccess: el valor será el nombre del fichero que hay que buscar en cada directorio para directivas adicionales de configuración
+
+Include ports.conf: Incluye la lista de puertos a traves de los que escuchar. Referencia al fichero ports.conf.
+
+Otras directivas interesantes que modifican esta configuración son: 
+
+| Directiva | Descripción | Ejemplo de uso |
+| --- | --- | --- |
+| **ServerName** | Nombre de equipo y puerto que usa el servidor para identificarse ante los clientes. **Indica el nombre del sitio web** | ServerName www.pagina.es:80 |
+| **ServerRoot** | Indica la carpeta en la que se ha instalado el servidor. **No es la carpeta de archivos de configuración** | ServerRoot /usr/local/apache |
+| **ServerAdmin** | Direccion de correo del administrador del servidor web. En caso de error se mostrará al usuario para que reporte culaquier incidencia. | ServerAdmin hola@alvarobenito.es |
+| **Listen** | Especifica los puertos del servidor en los que escucha a los clientes y, opcionalmente las IPs de los adaptadores de la red que utiliza. | Listen 80 Listen 192.168.3.5:8080 |
+| **TimeOut** | Máximo tiempo en segundos que el servidor expera un nuevo mensaje de un cliente para no cerrar la conexion | TimeOut 300 |
+| **KeepAlive** | Para indicar que se mantenga (on) o no (off) una conexion con un cliente para vaias transacciones | KeepAlive on / KeepAlive off |
+| **DocumentRoot** | Define la ruta del equipo donde estan todos los ficheros que se sirven en cada momento a traves del sitio web. Todo lo que haya en este directorio está en principio suendo ofrecido a traves de la web | DpcumentRoot var/web |
+| **DirectoryIndex** | Indica los nombres de las páginas web índice que puede entrefar el servidor por defecto cuando en la peticion http la URL contiene un solo nombre de carpeta | DirectoryIndex index.html home.html index.php |
+| **NameVirtualHost** | Especifica las direcciones IP y puerto en los que el servidor recibirá peticiones para sitios web virtuales basados en nombre. Sise usa esta directiva, se deben definir los sitios virtuales dentro de una directiva. <VirtualHost>...</VirtualHost> | NameVirtualHost*:8 |
+| **ErrorLog** | Fichero donde se registran los errores que se produzcan | /var/log/error_log |
+
+
+
+
+
 
 
 
