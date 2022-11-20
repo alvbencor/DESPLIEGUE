@@ -14,7 +14,7 @@
 
 - - - 
 
-[# Directivas importantes](#directivas) [# Otras directivas](#otrasdirectivas)
+[# Directivas importantes](#directivas)     [# Otras directivas](#otrasdirectivas) [# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)    
 
 ---
 
@@ -123,7 +123,7 @@ El hecho de que la configuración esté repartida en diferentes ficheroshace má
 
 [↑ INDEX](#index)<br>
 
-#### apache2.conf
+#### <a name="apache2.conf">apache2.conf</a>
 
 Es el fichero principal de apache, donde se pueden realizar cambios generales.
 
@@ -139,7 +139,7 @@ Para establecer el **modelo de seguridad** que se aplicará por defecto:
         Require all granted
       </Directory>
  
-**AccessFieName .htaccess**: el valor será el nombre del fichero que hay que buscar en cada directorio para directivas adicionales de configuración
+**AccessFileName .htaccess**: el valor será el nombre del fichero que hay que buscar en cada directorio para directivas adicionales de configuración
 
 **Include ports.conf**: Incluye la lista de puertos a traves de los que escuchar. Referencia al fichero ports.conf.
 
@@ -168,36 +168,34 @@ Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta 
 
 #### LoadModule
 
-LoadModule es usada para cargar en módulos Dynamic Shared Obhect (DSO). Linkea en el archivo o libreria y lo añada a la lista de modulos activos. 
+LoadModule es usada para cargar en módulos Dynamic Shared Object (DSO). Linkea en el archivo o libreria y lo añada a la lista de modulos activos. 
 
 
 #### UserDir
 
 La directiva UserDir especifica un directorio del que cargar contenido por usuario.
 
-En sistemas con multiples usuarios, cada usuario puede tener un sitio web en su directorio home usando la directiva UserDir. Los visitantes de una URL http://ejemplo.com/~username/ recibniran el contenido del directorio home del usuario username en el subdirectorio especificado por la directiva userdir
+En sistemas con multiples usuarios, cada usuario puede tener un sitio web en su directorio home usando la directiva UserDir. Los visitantes de una URL http://ejemplo.com/~username/ recibniran el contenido del directorio home del usuario username en el subdirectorio especificado por la directiva *userdir*.
 
-Por defecto, el acceso a estos directorios no está activado. Se puede permitir el acceso cuando usa userdir quitando el comentario de la linea 
+Por defecto, el acceso a estos directorios no está activado. Se puede permitir el acceso cuando usa *userdir* quitando el comentario de la linea 
 
-#Include conf/extra/httpd-userdi
+#Include conf/extra/httpd-userdir
 
 
 #### ifModule
 
-las etiquetas <ifmodule> </ifmodule> crean un contenedor condicional que solo es actifado si el modulo especificado es cargado. Las directivas conteidas entre estas etiquetas son procesadas bajo una de dos condiciones. 
+Las etiquetas <ifmodule> </ifmodule> **crean un contenedor condicional** que solo es activado si el módulo especificado es cargado. Las directivas contenidas entre estas etiquetas son procesadas bajo una de dos condiciones. 
 
 #### DirectoryIndex
 
 DirectoryIndex es la pagina por defecto que entrega el servidor cuando hay una peticion de índice de un directorio especificado con una barra (/) al final del nombre del directorio.
 
 Cuando un usuario pide la página http://ejemplo/estedirectorio/ , recibe la página del índice del directorio DirectoryIndex si existe, o un listado de directorios generado por el servidor. El valor por defeco para DirectoryIndex es index.html. El servidor intentará encontrar cualquiera de estos archivos y entregara el primero que encuentre. si no encuentra ninguno y Option Indexes esta configurado para ese directorio, el servidor genera y devuelve una lista en html de los subdirectorios y archivos dendtro del directorio, a menos que la caracteristica de listar directorios este desactivada. 
-
-
     
 #### envars
 Contiene la configuración de las variables de entorno
 
-#### ports.conf
+#### <a name="ports.conf">ports.conf</a>
 
     cat /etc/apache2/ports.conf
     
@@ -212,7 +210,7 @@ Contiene ficheros de configuracion adicionales para diferentes aspectos de Apach
     cd /etc/apache2/conf-available
 
 #### conf-enabled
-Contiene una serie de elaces simbólicos a los ficheros de configuracion adicionales para activarlos. Puede activarse o desactivarse con los comandos **a2enconf** o **a2disconf**
+Contiene una serie de elaces simbólicos a los ficheros de configuración adicionales para activarlos. Puede activarse o desactivarse con los comandos **a2enconf** o **a2disconf**
 
     cd /etc/apache2/conf-enabled
 
@@ -228,7 +226,7 @@ Contiene los ficheros de configuracion de cada uno de los host virtuales configu
 Aquí se localiza el fichero **000-default.conf** que contendrá la configuracion del servidor virtual por defecto. Un enlace a este fichero se encontrá en **sites-enabled**.
 
 #### sites-enabled
-Contiene enlaces simbólicos a los ficheros de configuracion cuyos hosts virtuales se encuentran activos en este momento. 
+Contiene enlaces simbólicos a los ficheros de configuración cuyos hosts virtuales se encuentran activos en este momento. 
 
 
 [↑ INDEX](#index)<br> 
@@ -245,22 +243,21 @@ Los ficheros de log se encuentran en
 Por defecto, almacenará informacion de cada petición que llegue al servidor
 
 #### error.log
-Por defecto, en se almacena información de los errores que se produzcan
-r.conf
+Por defecto, en el se almacena información de los errores que se produzcan
 
 
 [↑ INDEX](#index)<br>
 
-## <a name="authttp">Autenticacion http</a>
+## <a name="authttp">Autenticación http</a>
 
 
-Permite proteger carpetas personales dentro del servidor web, en este caso apache. Para hacer uso de ella, lo primero es instalar si no lo esta el paquete apache2-utils
+Permite proteger carpetas personales dentro del servidor web, en este caso apache. Para hacer uso de ella, lo primero es instalar, si no lo está, el paquete **apache2-utils**.
 
-Una de las utilidades que ofrece es manipular archivos de autenticacion(con el comando htpasswd) que serán los ficheros a traves de los cuales se configura el acceso, mendiante usuario y contraseña, a esas carpetas protegidas dentro del servidor web.
+Una de las utilidades que ofrece es manipular archivos de autenticación(con el comando **htpasswd**) que serán los ficheros a traves de los cuales se configurará el acceso, mendiante usuario y contraseña, a esas carpetas protegidas dentro del servidor web.
 
-El comando htpasswd mencionado antes, se utiliza tanto para crear el fichero cpor primera vez y añadir un usuario a la zona protegida que se va a crear, como para añadir otros usuarios una vez creado.
+El comando *htpasswd* mencionado antes, se utiliza tanto para crear el fichero por primera vez y añadir un usuario a la zona protegida que se va a crear, como para añadir otros usuarios una vez creado.
 
-La primera vez, **hay que usar la opcion -c**. Para añadir mas usuarios ya no hay que utilizarla. Si se utilizara, sobreescribiria el fichero y se perderian los datos anteriormente almacenados. 
+La primera vez, **hay que usar la opcion -c**. Para añadir mas usuarios ya no hay que utilizarla. Si se utilizara, **sobreescribiria el fichero** y se perderían los datos anteriormente almacenados. 
 
 Una vez configurado el usuario y contraseña, hay que asignar esa propiedad al usuario y grupo de apache. En el fichero de variable de entornos de apache ( /etc/apache2/envars).
 
@@ -269,8 +266,8 @@ El siguiente paso es proteger el/los directorios del sitio web. Para esto se inc
 Las directivas que se incluyen son:
 - **AuthTypeBasic** que define el tipo de autenticacion
 - **AuthName** que dfine el mensaje que se mostrara al usuario cuando se le solicite el usuario y contraseña para acceder
-- **AuthUserFile: se indica la ruta al fichero que se ha creado con los usuarios/contraseña que tienen permitido el acceso.
-- **Require valid-User**: indica que solo se podra acceder con un usuario válido. Si de los usuarios que haya configurados se pretende que solo tenga permisos de acceso uno, se puede indicar como sigue: **Require user alvaro**
+- **AuthUserFile**: se indica la ruta al fichero que se ha creado con los usuarios/contraseña que tienen permitido el acceso.
+- **Require valid-User**: indica que sólo se podrá acceder con un usuario válido. Si de los usuarios que haya configurados se pretende que sólo tenga permisos de acceso uno de ellos, se puede indicar como sigue: **Require user alvaro**
 
 
 
@@ -281,7 +278,7 @@ Las directivas que se incluyen son:
 
 ## <a name="htaccess">Autenticacion con htaccess</a>
 
-Otra manera de configurar la autenticacion es creando el fichero **.htaccess** que se almacena detro de la carpeta que se quiere proteger. Esta opcion supone tener que modificar la configuracion general de apache para permitir que las propiedades sobre el directorio raiz puedan ser modificadas. El cambio que hay que realizar es sobre la directiva **AllowOverride**, que se establecera a **All**, permitiendo que la política de dicho directorio sea diferente si así se define con algun fichero .htaccess.
+Otra manera de configurar la autenticacion es creando el fichero **.htaccess** que se almacena detro de la carpeta que se quiere proteger. Esta opcion supone tener que modificar la configuracion general de apache para permitir que las propiedades sobre el directorio raiz puedan ser modificadas. El cambio que hay que realizar es sobre la directiva **AllowOverride**, que se establecera a **All**, permitiendo que la política de dicho directorio sea diferente si así se define con algun fichero *.htaccess*.
 
     <Directory /var/www/>
         Options Indexes FollowSymLinks
@@ -290,7 +287,7 @@ Otra manera de configurar la autenticacion es creando el fichero **.htaccess** q
     </Directory>
 
 
-Y ya en el directorio que se quiere proteger, se incluye un fichero .htaccess con el siguiente contenido:
+Y ya en el directorio que se quiere proteger, se incluye un fichero *.htaccess* con el siguiente contenido:
 
 
     AuthType Basic
@@ -304,9 +301,9 @@ Y ya en el directorio que se quiere proteger, se incluye un fichero .htaccess co
 
 ## <a name="error">Personalizar las páginas de error</a>
 
-Basta con crear las paginas de error HTML que se quiera que vea el usuario y asociarlo al error para el que se quiera mostrar. 
+Basta con crear las paginas de error HTML que se quiera que vea el usuario y asociarlo al error que se quiera mostrar. 
 
-Editamos el archivo mipaginadeejemplo.com.conf:
+Editamos el archivo **mipaginadeejemplo.com.conf:**
 
 
     nano /etc/apache2/sites-available/mipaginadewjwmplo.com.conf
@@ -345,7 +342,7 @@ Y editamos el contenido:
         SSLProtocol All -SSLv3 
     </VirtualHost>
 
-Las directivas ErrorDocument se pueden meter tambien en el fichero .htaccess siempre y cuando AllowOverride sea All
+Las directivas **ErrorDocument** se pueden meter tambien en el fichero .htaccess siempre y cuando **AllowOverride sea All**
 
 
 [↑ INDEX](#index)<br>
@@ -357,7 +354,7 @@ Las directivas ErrorDocument se pueden meter tambien en el fichero .htaccess sie
 
 **Secure Socket Layer** es un protocolo de seguridad cuyas diversas vulnerabilidades hicieron que fuera paulatinamente sustituido por el protocolo TLS (Transport Secure Layer).
 
-Se ha hablado tambien del certificado necesario para poder establecer una conexion segura con TLS. Aunque los certificados los podemos crear nosotros, no son aceptados por los navegadores. 
+Se ha hablado también del certificado necesario para poder establecer una conexion segura con TLS. Aunque los certificados los podemos crear nosotros, no son aceptados por los navegadores. 
 
 Para crear un certificado, hay que crearlo con una clave. Se almacenan en el directorio **/etc/apache2/certs** que tenemos que crear nosotros mismos primero.
     
@@ -369,9 +366,9 @@ Al ejecutar este comando y tras la introduccion de algunos datos que se solicita
 Tras esto, se activará el modulo ssl como hemos visto antes y se reiniciará apache. 
 
 Una vez configurada la seguridad, hay que configurar los host virtuales a los que se quiera aplicar la misma. las acciones a realizar son: 
-- Cambiar el puerto donde escucha al 443
+- Cambiar el puerto donde escucha al **443**
 - Activar el soporte para SSL
-- Indicar donde estan el certificado y la clave.
+- Indicar dónde estan el certificado y la clave.
 
 Editamos el archivo:
 
@@ -383,8 +380,8 @@ Y añadimos:
         </Directory>
 
         SSLEngineOn
-        SSLCertificateFile /etc/apache2/certs/apache2.crt
-        SSLertificateKeyFile /etc/apache2/certs/apache2.key
+            SSLCertificateFile /etc/apache2/certs/apache2.crt
+            SSLertificateKeyFile /etc/apache2/certs/apache2.key
         SSLProtocol All -SSLv3
     </VirtualHost>
     
