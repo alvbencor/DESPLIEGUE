@@ -31,6 +31,104 @@ Este software incluye entre otros:
 - smtp
 - ftp
 
+## Instalación de Apache
+
+    sudo apt install apache2 apache2-utils
+
+### Status, arrancar, parar y recargar Apache
+
+#### Estado del servidor
+    sudo systemctl status apache2
+
+#### Arrancar el servidor
+    sudo systemctl start apache2
+
+#### Parar el servidor 
+    sudo systemctl stop apache2
+
+#### Recargar la configuración
+    sudo systemctl reload apache2
+    
+#### Deshabilitar/habilitar el inicio automático
+
+Apache está configurado por defecto para activarse cuando arranca el sistema operativo. Para odificar esto:
+
+    sudo systemctl disable apache2
+
+Y para habilitarlo de nuevo: 
+
+    sudo systemctl enable apache2
+
+#### Versión instalada
+    apache2 -v
+    
+
+## Directorios importantes
+
+### Contenido
+
+Ir a la carpeta raiz:
+    cd /var/www/html
+
+Aquí es donde se encuentra la página de bienvenida de apache (index.html) que puede ser configurada como una pagina estática.
+
+### Configuracion del servidor
+
+ir a la carpeta de archivos de configuracion:
+
+    sudo /ect/apache2
+
+El hecho de que la configuración esté repartida en diferentes ficheroshace más facil su mantenimiento y resulta más modular a la hora de activar o desactivar según que caraterísticas:
+
+#### apache2.conf
+
+Es el fichero principal de apache, donde se pueden realizar cambios generales.
+
+    cat /etc/apache2/apache2.conf
+    
+#### envars
+Contiene la configuración de las variables de entorno
+
+#### ports.conf
+Contiene la configuracion de los puertos donde apache escucha
+    cat /etc/apache2/ports.conf
+
+#### conf-available
+Contiene ficheros de configuracion adicionales para diferentes aspectos de Apache o de aplicaciones web como *phpMyAdmin*
+    cd /etc/apache2/conf-available
+
+#### conf-enabled
+Contiene una serie de elaces simbólicos a los ficheros de configuracion adicionales para activarlos. Puede activarse o desactivarse con los comandos **a2enconf** o **a2disconf**
+
+    cd /etc/apache2/conf-enabled
+
+#### mods-available
+Contiene los módulos disponibles para usar con apache
+
+#### mods-enabled
+Contiene enlaces simbólicos a aquellos módulos de Apache que se encuentran activados en este momento.
+
+#### sites-available
+Contiene los ficheros de configuracion de cada uno de los host virtuales configurados y disponibles (activos o no) Se crean utilizando los comandos pertinentes.
+
+# sites-enabled
+Contiene enlaces simbólicos a los ficheros de configuracion cuyos hosts virtuales se encuentran activos en este momento. 
+
+### ***Logs* del servidor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
