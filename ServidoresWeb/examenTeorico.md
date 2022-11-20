@@ -202,6 +202,132 @@ Por defecto, almacenará informacion de cada petición que llegue al servidor
 Por defecto, en se almacena información de los errores que se produzcan
 r.conf
 
+## Autenticacion http
+
+Permite proteger carpetas personales dentro del servidor web, en este caso apache. Para hacer uso de ella, lo primero es instalar si no lo esta el paquete apache2-utils
+
+Una de las utilidades que ofrece es manipular archivos de autenticacion(con el comando htpasswd) que serán los ficheros a traves de los cuales se configura el acceso, mendiante usuario y contraseña, a esas carpetas protegidas dentro del servidor web.
+
+El comando htpasswd mencionado antes, se utiliza tanto para crear el fichero cpor primera vez y añadir un usuario a la zona protegida que se va a crear, como para añadir otros usuarios una vez creado.
+
+La primera vez, **hay que usar la opcion -c**. Para añadir mas usuarios ya no hay que utilizarla. Si se utilizara, sobreescribiria el fichero y se perderian los datos anteriormente almacenados. 
+
+Una vez configurado el usuario y contraseña, hay que asignar esa propiedad al usuario y grupo de apache. En el fichero de variable de entornos de apache ( /etc/apache2/envars).
+
+El siguiente paso es proteger el/los directorios del sitio web. Para esto se incluye la directiva Directory en el fichero de configuracion del sitio web.
+
+Las directivas que se incluyen son:
+- **AuthTypeBasic** que define el tipo de autenticacion
+- **AuthName** que dfine el mensaje que se mostrara al usuario cuando se le solicite el usuario y contraseña para acceder
+- **AuthUserFile: se indica la ruta al fichero que se ha creado con los usuarios/contraseña que tienen permitido el acceso.
+- **Require valid-User**: indica que solo se podra acceder con un usuario válido. Si de los usuarios que haya configurados se pretende que solo tenga permisos de acceso uno, se puede indicar como sigue: **Require user alvaro**
+
+
+
+[Ver ejercicio/ejemplo aqui](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)
+
+## Autenticacion con htaccess
+
+Otra manera de configurar la autenticacion es creando el fichero **.htaccess** que se almacena detro de la carpeta que se quiere proteger. Esta opcion supone tener que modificar la configuracion general de apache para permitir que las propiedades sobre el directorio raiz puedan ser modificadas. El cambio que hay que realizar es sobre la directiva **AllowOverride**, que se establecera a **All**, permitiendo que la política de dicho directorio sea diferente si así se define con algun fichero .htaccess.
+
+    <Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+
+Y ya en el directorio que se quiere proteger, se incluye un fichero .htaccess con el siguiente contenido:
+
+
+    AuthType Basic
+    AuthName "Acceso restringido a monguers"
+    AuthUserFile /etc/apache2/.htpasswd
+    Require user fati
+
+
+## Personalizar las páginas de error
+
+Basta con crear las paginas de error HTML que se quiera que vea el usuario y asociarlo al error para el que se quiera mostrar. 
+
+Editamos el archivo mipaginadeejemplo.com.conf:
+
+
+    nano /etc/apache2/sites-available/mipaginadewjwmplo.com.conf
+    
+
+Y editamos el contenido:
+
+    <VirtualHost *:443>
+      ServerAdmin hola@alvarobenito.es
+      DocumentRoot /var/www/pagina.es
+      ServerName pagina.com
+      ServerAlias www.pagina.es
+      ErrorLog /var/www/pagina.es/logs/errors.log
+      CustomLog /var/www/pagina.es/logs/access.log combined
+
+      ErrorDocument 404 /error/error_404.html
+      ErrorDocument 500 "Nos hemos ido a la chingada, wey"
+
+        <Directory "/var/www/pagina.es/">
+            AuthType Basic
+            AuthName "Acceso Restringido a usuarios"
+            AuthUserFile /etc/apache2/.htpasswd
+                Require user fati
+        </Directory>
+
+        <Directory "/var/www/pagina.es/private/">
+                    AuthType Basic
+                    AuthName "Acceso Restringido a usuarios"
+                    AuthUserFile /etc/apache2/.htpasswd
+                    Require user alvaro
+            </Directory>
+
+            SSLEngine On
+        SSLCertificateFile /etc/apache2/certs/apache2.crt
+        SSLCertificateKeyFile /etc/apache2/certs/apache2.key
+        SSLProtocol All -SSLv3 
+    </VirtualHost>
+
+Las directivas ErrorDocument se pueden meter tambien en el fichero .htaccess siempre y cuando AllowOverride sea All
+
+## Configurar SSL/TLS en Apache
+
+**Secure Socket Layer** es un protocolo de seguridad cuyas diversas vulnerabilidades hicieron que fuera paulatinamente sustituido por el protocolo TLS (Transport Secure Layer).
+
+Se ha hablado tambien del certificado necesario para poder establecer una conexion segura con TLS. Aunque los certificados los podemos crear nosotros, no son aceptados por los navegadores. 
+
+Para crear un certificado, hay que crearlo con una clave. Se almacenan en el directorio **/etc/apache2/certs** que tenemos que crear nosotros mismos primero.
+    
+    openssl req -x509 -nodes -days 365 -newKey rsa:2048 -keyout /etc/apache2/certs/apache2.key -out /etc/apache2/certs/apache2.crt
+    
+
+Al ejecutar este comando y tras la introduccion de algunos datos que se solicitaran, se creara el certificado y su clave.
+
+Tras esto, se activará el modulo ssl como hemos visto antes y se reiniciará apache. 
+
+Una vez configurada la seguridad, hay que configurar los host virtuales a los que se quiera aplicar la misma. las acciones a realizar son: 
+- Cambiar el puerto donde escucha al 443
+- Activar el soporte para SSL
+- Indicar donde estan el certificado y la clave.
+
+Editamos el archivo:
+
+    sudo nano /ect/apache2/sitas-available/mipaginaejemplo.com.conf
+    
+Y añadimos:
+
+    ...
+        </Directory>
+
+        SSLEngineOn
+        SSLCertificateFile /etc/apache2/certs/apache2.crt
+        SSLertificateKeyFile /etc/apache2/certs/apache2.key
+        SSLProtocol All -SSLv3
+    </VirtualHost>
+    
+Ver [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio11.md)
+    
 
 
 
