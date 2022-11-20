@@ -14,7 +14,9 @@
 
 - - - 
 
-[# Directivas importantes](#directivas)     [# Otras directivas](#otrasdirectivas) [# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)  [# UserDir](#UserDir) [# DirectoryIndex](#DirectoryIndex)  
+[# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)<br>
+
+[# Directivas importantes](#directivas)  [# UserDir](#UserDir) [# DirectoryIndex](#DirectoryIndex)  
 
 ---
 
@@ -27,6 +29,14 @@ Http es el programa servidor del protocolo Apache HTTP. Está diseñado para ser
 ## <a name="caractApache">Características de Apache</a>
 
 Es un servidor web con soporte para http/1.1 y http/2.0
+
+- Gratuito y codigo abierto
+- Instalación y configuración sencilla
+- Altamente extensible y adaptable mediante módulos
+- Funciones incorporadas para la autenticación y validación de usuarios
+- Soporte para lenguajes como Perl, PHP y Python
+
+
 
 
 [↑ INDEX](#index)<br>
@@ -154,13 +164,13 @@ Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta 
 | **Listen** | Especifica los puertos del servidor en los que escucha a los clientes y, opcionalmente las IPs de los adaptadores de la red que utiliza. | Listen 80 Listen 192.168.3.5:8080 |
 | **TimeOut** | Máximo tiempo en segundos que el servidor expera un nuevo mensaje de un cliente para no cerrar la conexion | TimeOut 300 |
 | **KeepAlive** | Para indicar que se mantenga (on) o no (off) una conexion con un cliente para vaias transacciones | KeepAlive on / KeepAlive off |
-| **DocumentRoot** | Define la ruta del equipo donde estan todos los ficheros que se sirven en cada momento a traves del sitio web. Todo lo que haya en este directorio está en principio suendo ofrecido a traves de la web | DpcumentRoot var/web |
-| **DirectoryIndex** | Indica los nombres de las páginas web índice que puede entrefar el servidor por defecto cuando en la peticion http la URL contiene un solo nombre de carpeta | DirectoryIndex index.html home.html index.php |
-| **NameVirtualHost** | Especifica las direcciones IP y puerto en los que el servidor recibirá peticiones para sitios web virtuales basados en nombre. Sise usa esta directiva, se deben definir los sitios virtuales dentro de una directiva. <VirtualHost>...</VirtualHost> | NameVirtualHost*:8 |
+| **DocumentRoot** | Define la ruta del equipo donde estan todos los ficheros que se sirven en cada momento a traves del sitio web. Todo lo que haya en este directorio está en principio siendo ofrecido a través de la web | DocumentRoot var/web |
+| **DirectoryIndex** | Indica los nombres de las páginas web índice que puede entregar el servidor por defecto cuando en la peticion http la URL contiene un solo nombre de carpeta | DirectoryIndex index.html home.html index.php |
+| **NameVirtualHost** | Especifica las direcciones IP y puerto en los que el servidor recibirá peticiones para sitios web virtuales basados en nombre. Si se usa esta directiva, se deben definir los sitios virtuales dentro de una directiva. <VirtualHost>...</VirtualHost> | NameVirtualHost*:8 |
 | **ErrorLog** | Fichero donde se registran los errores que se produzcan | /var/log/error_log |
 | **LoadModule** | LoadModule es usada para cargar en módulos Dynamic Shared Object (DSO). Linkea en el archivo o libreria y lo añada a la lista de modulos activos. | --- |
-| **UserDir** | La directiva UserDir especifica un directorio del que cargar contenido por usuario. | --- |
-| **ifModule** | Las etiquetas <ifmodule> </ifmodule> **crean un contenedor condicional** que solo es activado si el módulo especificado es cargado. Las directivas contenidas entre estas etiquetas son procesadas bajo una de dos condicio | --- |
+| **UserDir** | La directiva UserDir especifica un directorio del que cargar contenido por usuario. | Ver más debajo |
+| **ifModule** | Las etiquetas <ifmodule> </ifmodule> **crean un contenedor condicional** que solo es activado si el módulo especificado es cargado. Las directivas contenidas entre estas etiquetas son procesadas bajo una de dos condiciones | --- |
 
 
 >  #### <a name="UserDir">UserDir</a>
@@ -174,26 +184,6 @@ Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta 
 > Cuando un usuario pide la página http://ejemplo/estedirectorio/ , recibe la página del índice del directorio DirectoryIndex si existe, o un listado de directorios generado por el servidor. El valor por defeco para DirectoryIndex es index.html. El servidor intentará encontrar cualquiera de estos archivos y entregara el primero que encuentre. si no encuentra ninguno y Option Indexes esta configurado para ese directorio, el servidor genera y devuelve una lista en html de los subdirectorios y archivos dendtro del directorio, a menos que la caracteristica de listar directorios este desactivada. 
 
 [↑ INDEX](#index)<br>
-
-
-## <a name="otrasdirectivas">Otras Directivas</a>
-
-
-#### 
-
- 
-
-
-#### x
-
-
-
-
-
-
-#### 
-
-nes. 
 
 
     
@@ -276,7 +266,7 @@ Las directivas que se incluyen son:
 
 
 
-[Ver ejercicio/ejemplo aqui](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)
+[Ver ejercicio 10](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)
 
 
 [↑ INDEX](#index)<br>
@@ -354,8 +344,6 @@ Las directivas **ErrorDocument** se pueden meter tambien en el fichero .htaccess
 
 
 ## <a name="ssl">Configurar SSL/TSL en Apache</a>
-
-## Configurar SSL/TLS en Apache
 
 **Secure Socket Layer** es un protocolo de seguridad cuyas diversas vulnerabilidades hicieron que fuera paulatinamente sustituido por el protocolo TLS (Transport Secure Layer).
 
