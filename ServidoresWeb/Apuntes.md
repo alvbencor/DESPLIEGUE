@@ -1,14 +1,37 @@
 # Apache Server
 
+### <a name="index">INDEX</a>
+
+1. [Características de Apache](#caractApache)
+2. [Arquitectura     ](#arq)
+3. [Instalación de Apache](#inst)
+4. [Manejar el estado del servicio](#estado)
+5. [Directorios importantes](#impordir)
+6. [Autenticacion http](#authttp)
+7. [Autenticacion con htaccess](#htaccess)
+8. [Peronalizar las páginas de error](#error)
+9. [Configurar SSL/TSL en Apache](#error)
+
+- - - 
+
+[# Directivas importantes](#directivas) [# Otras directivas](#otrasdirectivas)
+
+---
+
+
+
 Apache HTTP Server (httpd) es un software de servidor web de código abierto y gratuito, que garantiza el rendimiento, estabilidad y seguridad de un servidor web, mantenido y desarrollado por la apache software foundation y disponible para Windows, y GNU/Linux entre otros. 
 
 Http es el programa servidor del protocolo Apache HTTP. Está diseñado para ser ejecutado como un proceso autónomo, no interactivo y en segundo plano(daemon)
 
-## Características de apache
+## <a name="caractApache">Características de Apache</a>
 
 Es un servidor web con soporte para http/1.1 y http/2.0
 
-### Arquitectura
+
+[↑ INDEX](#index)<br>
+
+## <a name="arq">Arquitectura</a>
 
 - Está cifrado en **módulos**
 - Cada módulo contiene un conjunto de funciones relativas a un aspecto concreto del servidor. 
@@ -20,8 +43,8 @@ Es un servidor web con soporte para http/1.1 y http/2.0
 
 Esta estructura basada en módulos permite habilitar o deshabilitar distintas funcionalidades como:
 - **Módulos de seguridad** como *mod_security*
-- **Módulos** de caché como *Varnish*
-- **Módulos** de personalización de cabeceras como *mod_headers*.
+- **Módulos de caché** como *Varnish*
+- **Módulos de personalización de cabeceras** como *mod_headers*.
 
 Este software incluye entre otros:
 - envío mensajes de error personalizados
@@ -31,9 +54,14 @@ Este software incluye entre otros:
 - smtp
 - ftp
 
-## Instalación de Apache
+
+[↑ INDEX](#index)<br>
+
+## <a name="inst">Instalación de Apache</a>
 
     sudo apt install apache2 apache2-utils
+    
+## <a name="estado">Manejar el estado del servicio</a>
 
 ### Status, arrancar, parar y recargar Apache
 
@@ -51,7 +79,7 @@ Este software incluye entre otros:
     
 #### Deshabilitar/habilitar el inicio automático
 
-Apache está configurado por defecto para activarse cuando arranca el sistema operativo. Para odificar esto:
+Apache está configurado por defecto para activarse cuando arranca el sistema operativo. Para modificar esto:
 
     sudo systemctl disable apache2
 
@@ -63,6 +91,10 @@ Y para habilitarlo de nuevo:
     apache2 -v
     
 
+[↑ INDEX](#index)<br>
+
+
+## <a name="impordir">Directorios importantes</a>
 ## Directorios importantes
 
 ### Contenido
@@ -78,6 +110,8 @@ Esta página está referenciada en
     cd /etc/apache2/sites-available/000-default.conf
     
 
+[↑ INDEX](#index)<br>
+
 ### Configuracion del servidor
 
 ir a la carpeta de archivos de configuracion:
@@ -85,6 +119,9 @@ ir a la carpeta de archivos de configuracion:
     sudo /ect/apache2
 
 El hecho de que la configuración esté repartida en diferentes ficheroshace más facil su mantenimiento y resulta más modular a la hora de activar o desactivar según que caraterísticas:
+
+
+[↑ INDEX](#index)<br>
 
 #### apache2.conf
 
@@ -106,7 +143,9 @@ Para establecer el **modelo de seguridad** que se aplicará por defecto:
 
 **Include ports.conf**: Incluye la lista de puertos a traves de los que escuchar. Referencia al fichero ports.conf.
 
-Algunas directivas interesantes que modifican esta configuración son: 
+Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta configuración son: 
+
+
 
 | Directiva | Descripción | Ejemplo de uso |
 | --- | --- | --- |
@@ -121,8 +160,11 @@ Algunas directivas interesantes que modifican esta configuración son:
 | **NameVirtualHost** | Especifica las direcciones IP y puerto en los que el servidor recibirá peticiones para sitios web virtuales basados en nombre. Sise usa esta directiva, se deben definir los sitios virtuales dentro de una directiva. <VirtualHost>...</VirtualHost> | NameVirtualHost*:8 |
 | **ErrorLog** | Fichero donde se registran los errores que se produzcan | /var/log/error_log |
 
+[↑ INDEX](#index)<br>
 
-### Otras directivas
+
+## <a name="otrasdirectivas">Otras Directivas</a>
+
 
 #### LoadModule
 
@@ -188,6 +230,10 @@ Aquí se localiza el fichero **000-default.conf** que contendrá la configuracio
 #### sites-enabled
 Contiene enlaces simbólicos a los ficheros de configuracion cuyos hosts virtuales se encuentran activos en este momento. 
 
+
+[↑ INDEX](#index)<br> 
+
+
 ### *Logs* del servidor
 
 Los ficheros de log se encuentran en 
@@ -202,7 +248,11 @@ Por defecto, almacenará informacion de cada petición que llegue al servidor
 Por defecto, en se almacena información de los errores que se produzcan
 r.conf
 
-## Autenticacion http
+
+[↑ INDEX](#index)<br>
+
+## <a name="authttp">Autenticacion http</a>
+
 
 Permite proteger carpetas personales dentro del servidor web, en este caso apache. Para hacer uso de ella, lo primero es instalar si no lo esta el paquete apache2-utils
 
@@ -226,7 +276,10 @@ Las directivas que se incluyen son:
 
 [Ver ejercicio/ejemplo aqui](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)
 
-## Autenticacion con htaccess
+
+[↑ INDEX](#index)<br>
+
+## <a name="htaccess">Autenticacion con htaccess</a>
 
 Otra manera de configurar la autenticacion es creando el fichero **.htaccess** que se almacena detro de la carpeta que se quiere proteger. Esta opcion supone tener que modificar la configuracion general de apache para permitir que las propiedades sobre el directorio raiz puedan ser modificadas. El cambio que hay que realizar es sobre la directiva **AllowOverride**, que se establecera a **All**, permitiendo que la política de dicho directorio sea diferente si así se define con algun fichero .htaccess.
 
@@ -246,7 +299,10 @@ Y ya en el directorio que se quiere proteger, se incluye un fichero .htaccess co
     Require user fati
 
 
-## Personalizar las páginas de error
+
+[↑ INDEX](#index)<br>
+
+## <a name="error">Personalizar las páginas de error</a>
 
 Basta con crear las paginas de error HTML que se quiera que vea el usuario y asociarlo al error para el que se quiera mostrar. 
 
@@ -291,6 +347,12 @@ Y editamos el contenido:
 
 Las directivas ErrorDocument se pueden meter tambien en el fichero .htaccess siempre y cuando AllowOverride sea All
 
+
+[↑ INDEX](#index)<br>
+
+
+## <a name="ssl">Configurar SSL/TSL en Apache</a>
+
 ## Configurar SSL/TLS en Apache
 
 **Secure Socket Layer** es un protocolo de seguridad cuyas diversas vulnerabilidades hicieron que fuera paulatinamente sustituido por el protocolo TLS (Transport Secure Layer).
@@ -329,7 +391,7 @@ Y añadimos:
 Ver [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio11.md)
     
 
-
+[↑ INDEX](#index)<br>
 
 
 
