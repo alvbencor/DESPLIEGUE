@@ -14,7 +14,7 @@
 
 - - - 
 
-[# Directivas importantes](#directivas)     [# Otras directivas](#otrasdirectivas) [# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)    
+[# Directivas importantes](#directivas)     [# Otras directivas](#otrasdirectivas) [# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)  [# UserDir](#UserDir) [# DirectoryIndex](#DirectoryIndex)  
 
 ---
 
@@ -158,6 +158,20 @@ Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta 
 | **DirectoryIndex** | Indica los nombres de las páginas web índice que puede entrefar el servidor por defecto cuando en la peticion http la URL contiene un solo nombre de carpeta | DirectoryIndex index.html home.html index.php |
 | **NameVirtualHost** | Especifica las direcciones IP y puerto en los que el servidor recibirá peticiones para sitios web virtuales basados en nombre. Sise usa esta directiva, se deben definir los sitios virtuales dentro de una directiva. <VirtualHost>...</VirtualHost> | NameVirtualHost*:8 |
 | **ErrorLog** | Fichero donde se registran los errores que se produzcan | /var/log/error_log |
+| **LoadModule** | LoadModule es usada para cargar en módulos Dynamic Shared Object (DSO). Linkea en el archivo o libreria y lo añada a la lista de modulos activos. | --- |
+| **UserDir** | La directiva UserDir especifica un directorio del que cargar contenido por usuario. | --- |
+| **ifModule** | Las etiquetas <ifmodule> </ifmodule> **crean un contenedor condicional** que solo es activado si el módulo especificado es cargado. Las directivas contenidas entre estas etiquetas son procesadas bajo una de dos condicio | --- |
+
+
+>  #### <a name="UserDir">UserDir</a>
+>En sistemas con multiples usuarios, cada usuario puede tener un sitio web en su directorio home usando la directiva UserDir. Los visitantes de una URL http://ejemplo.com/~username/ recibniran el contenido del directorio home del usuario username en el subdirectorio especificado por la directiva *userdir*.
+>Por defecto, el acceso a estos directorios no está activado. Se puede permitir el acceso cuando usa *userdir* quitando el comentario de la linea 
+>#Include conf/extra/httpd-userdir
+
+
+> #### <a name="DirectoryIndex">DirectoryIndex</a>
+> DirectoryIndex es la pagina por defecto que entrega el servidor cuando hay una peticion de índice de un directorio especificado con una barra (/) al final del nombre del directorio.
+> Cuando un usuario pide la página http://ejemplo/estedirectorio/ , recibe la página del índice del directorio DirectoryIndex si existe, o un listado de directorios generado por el servidor. El valor por defeco para DirectoryIndex es index.html. El servidor intentará encontrar cualquiera de estos archivos y entregara el primero que encuentre. si no encuentra ninguno y Option Indexes esta configurado para ese directorio, el servidor genera y devuelve una lista en html de los subdirectorios y archivos dendtro del directorio, a menos que la caracteristica de listar directorios este desactivada. 
 
 [↑ INDEX](#index)<br>
 
@@ -165,31 +179,23 @@ Algunas <a name="directivas">**directivas** </a>interesantes que modifican esta 
 ## <a name="otrasdirectivas">Otras Directivas</a>
 
 
-#### LoadModule
+#### 
 
-LoadModule es usada para cargar en módulos Dynamic Shared Object (DSO). Linkea en el archivo o libreria y lo añada a la lista de modulos activos. 
-
-
-#### UserDir
-
-La directiva UserDir especifica un directorio del que cargar contenido por usuario.
-
-En sistemas con multiples usuarios, cada usuario puede tener un sitio web en su directorio home usando la directiva UserDir. Los visitantes de una URL http://ejemplo.com/~username/ recibniran el contenido del directorio home del usuario username en el subdirectorio especificado por la directiva *userdir*.
-
-Por defecto, el acceso a estos directorios no está activado. Se puede permitir el acceso cuando usa *userdir* quitando el comentario de la linea 
-
-#Include conf/extra/httpd-userdir
+ 
 
 
-#### ifModule
+#### x
 
-Las etiquetas <ifmodule> </ifmodule> **crean un contenedor condicional** que solo es activado si el módulo especificado es cargado. Las directivas contenidas entre estas etiquetas son procesadas bajo una de dos condiciones. 
 
-#### DirectoryIndex
 
-DirectoryIndex es la pagina por defecto que entrega el servidor cuando hay una peticion de índice de un directorio especificado con una barra (/) al final del nombre del directorio.
 
-Cuando un usuario pide la página http://ejemplo/estedirectorio/ , recibe la página del índice del directorio DirectoryIndex si existe, o un listado de directorios generado por el servidor. El valor por defeco para DirectoryIndex es index.html. El servidor intentará encontrar cualquiera de estos archivos y entregara el primero que encuentre. si no encuentra ninguno y Option Indexes esta configurado para ese directorio, el servidor genera y devuelve una lista en html de los subdirectorios y archivos dendtro del directorio, a menos que la caracteristica de listar directorios este desactivada. 
+
+
+#### 
+
+nes. 
+
+
     
 #### envars
 Contiene la configuración de las variables de entorno
