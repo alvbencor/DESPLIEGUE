@@ -5,12 +5,12 @@
 1. [Características de Apache](#caractApache)
 2. [Arquitectura     ](#arq)
 3. [Instalación de Apache](#inst)
-4. [Manejar el estado del servicio](#estado)
-5. [Directorios importantes](#impordir)
+4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado)
+5. [Directorios importantes](#impordir) 
 6. [Autenticacion http](#authttp)
-7. [Autenticacion con htaccess](#htaccess)
-8. [Peronalizar las páginas de error](#error)
-9. [Configurar SSL/TSL en Apache](#error)
+8. [Autenticacion con htaccess](#htaccess)
+9. [Peronalizar las páginas de error](#error)
+10. [Configurar SSL/TSL en Apache](#error)
 
 - - - 
 
@@ -75,7 +75,7 @@ Este software incluye entre otros:
 
 ### Status, arrancar, parar y recargar Apache
 
-#### Estado del servidor
+#### <a name="estado">Estado del servidor</a> 
     sudo systemctl status apache2
 
 #### Arrancar el servidor
