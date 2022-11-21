@@ -390,6 +390,7 @@ Ver [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresW
 ## <a name="ejercicios">Ejercicios<a>
 
 [Ejercicio 8](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio8.md)<br>
+    Modulo para instalar Python
 
 [Ejercicio 9](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio9.md)<br>
     Directivas ifModule, DirectoryIndex, UserDir
