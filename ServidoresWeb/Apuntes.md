@@ -6,7 +6,7 @@
 2. [Arquitectura     ](#arq)
 3. [Instalación de Apache](#inst)
 4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado), [arrancar](#arrancar), [parar](#parar), [recargar](#recargar), [habilitar/deshabilitar al inicio](#habilitar), [versión instalada](#version)
-5. [Directorios importantes](#impordir) 
+5. [Directorios importantes](#impordir)<br> - [Carpeta Raíz](#raiz), [Configuración](#conf), [Logs](#logs) 
 6. [Autenticacion http](#authttp)
 8. [Autenticacion con htaccess](#htaccess)
 9. [Peronalizar las páginas de error](#error)
@@ -106,7 +106,7 @@ Y para habilitarlo de nuevo:
 
 ## <a name="impordir">Directorios importantes</a>
 
-### Contenido
+### <a name="raiz">Contenido</a> 
 
 Ir a la carpeta raiz:
     
@@ -121,7 +121,7 @@ Esta página está referenciada en
 
 [↑ INDEX](#index)<br>
 
-### Configuracion del servidor
+### <a name="conf">Configuración del servidor</a> 
 
 ir a la carpeta de archivos de configuracion:
 
@@ -227,7 +227,7 @@ Contiene enlaces simbólicos a los ficheros de configuración cuyos hosts virtua
 [↑ INDEX](#index)<br> 
 
 
-### *Logs* del servidor
+### <a name="logs">Logs del servidor</a> 
 
 Los ficheros de log se encuentran en 
 
