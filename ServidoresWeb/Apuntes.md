@@ -5,7 +5,7 @@
 1. [Características de Apache](#caractApache)
 2. [Arquitectura     ](#arq)
 3. [Instalación de Apache](#inst)
-4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado)
+4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado) , [arrancar](#arrancar) , [parar](#parar) , [recargar](#recargar) , [habilitar/deshabilitar al inicio](#habilitar) [versión instalada](#version)
 5. [Directorios importantes](#impordir) 
 6. [Autenticacion http](#authttp)
 8. [Autenticacion con htaccess](#htaccess)
@@ -78,16 +78,16 @@ Este software incluye entre otros:
 #### <a name="estado">Estado del servidor</a> 
     sudo systemctl status apache2
 
-#### Arrancar el servidor
+#### <a name="arrancar">Arrancar el servidro</a> 
     sudo systemctl start apache2
 
-#### Parar el servidor 
+#### <a name="parar">Parar el servidor</a>  
     sudo systemctl stop apache2
 
-#### Recargar la configuración
+#### <a name="recargar">Recargar la configuración</a> 
     sudo systemctl reload apache2
     
-#### Deshabilitar/habilitar el inicio automático
+#### <a name="habilitar">Habilitar/deshabilitar el inicio automático</a> 
 
 Apache está configurado por defecto para activarse cuando arranca el sistema operativo. Para modificar esto:
 
@@ -97,7 +97,7 @@ Y para habilitarlo de nuevo:
 
     sudo systemctl enable apache2
 
-#### Versión instalada
+#### <a name="version">Versión instalada</a> 
     apache2 -v
     
 
