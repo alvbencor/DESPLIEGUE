@@ -13,9 +13,9 @@
 10. [Configurar SSL/TSL en Apache](#error)
 
 
-> [Python bajo apache](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)
+> [Python bajo apache](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)<br>
 
-#### [Ejercicios](#ejercicios)
+[Ejercicios](#ejercicios)<br>
 
 - - - 
 
