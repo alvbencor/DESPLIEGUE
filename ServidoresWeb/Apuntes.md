@@ -392,10 +392,14 @@ Ver [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresW
 [Ejercicio 8](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio8.md)<br>
 
 [Ejercicio 9](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio9.md)<br>
+    Directivas ifModule, DirectoryIndex, UserDir
+    
     
 [Ejercicio 10](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)<br>
+    Permisos de acceso http: autenticacion http y con .htaccess
     
 [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio11.md)<br>
+    Personalizar páginas de error y configurar certificados TLS
   
 
 
