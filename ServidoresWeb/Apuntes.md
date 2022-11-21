@@ -351,7 +351,7 @@ Se ha hablado también del certificado necesario para poder establecer una conex
 
 Para crear un certificado, hay que crearlo con una clave. Se almacenan en el directorio **/etc/apache2/certs** que tenemos que crear nosotros mismos primero.
     
-    openssl req -x509 -nodes -days 365 -newKey rsa:2048 -keyout /etc/apache2/certs/apache2.key -out /etc/apache2/certs/apache2.crt
+    openssl req -x509 -days 365 -newKey rsa:2048 -keyout /etc/apache2/certs/apache2.key -out /etc/apache2/certs/apache2.crt
     
 
 Al ejecutar este comando y tras la introduccion de algunos datos que se solicitaran, se creara el certificado y su clave.
