@@ -12,6 +12,11 @@
 9. [Peronalizar las páginas de error](#error)
 10. [Configurar SSL/TSL en Apache](#error)
 
+
+> [Python bajo apache](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/PythonBajoApache.md)
+
+#### [Ejercicios](#ejercicios)
+
 - - - 
 
 [# apache2.conf](#apache2.conf)   [# ports.conf](#ports.conf)<br>
@@ -380,8 +385,18 @@ Ver [Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresW
 
 
 
+- - -
 
+## <a name="ejercicios">Ejercicios<a>
 
+[Ejercicio 8](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio8.md)<br>
+
+[Ejercicio 9](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio9.md)<br>
+    
+[Ejercicio 10](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio10.md)<br>
+    
+[Ejercicio 11](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ejercicio11.md)<br>
+  
 
 
 
