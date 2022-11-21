@@ -5,7 +5,7 @@
 1. [Características de Apache](#caractApache)
 2. [Arquitectura     ](#arq)
 3. [Instalación de Apache](#inst)
-4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado) , [arrancar](#arrancar) , [parar](#parar) , [recargar](#recargar) , [habilitar/deshabilitar al inicio](#habilitar) [versión instalada](#version)
+4. [Manejar el estado del servicio](#estado)<br> - [Estado del servidor](#estado), [arrancar](#arrancar), [parar](#parar), [recargar](#recargar), [habilitar/deshabilitar al inicio](#habilitar), [versión instalada](#version)
 5. [Directorios importantes](#impordir) 
 6. [Autenticacion http](#authttp)
 8. [Autenticacion con htaccess](#htaccess)
