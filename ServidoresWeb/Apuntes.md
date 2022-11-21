@@ -330,11 +330,6 @@ Y editamos el contenido:
                     AuthUserFile /etc/apache2/.htpasswd
                     Require user alvaro
             </Directory>
-
-            SSLEngine On
-        SSLCertificateFile /etc/apache2/certs/apache2.crt
-        SSLCertificateKeyFile /etc/apache2/certs/apache2.key
-        SSLProtocol All -SSLv3 
     </VirtualHost>
 
 Las directivas **ErrorDocument** se pueden meter tambien en el fichero .htaccess siempre y cuando **AllowOverride sea All**
