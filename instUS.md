@@ -19,7 +19,7 @@ Nos movemos con las flechas y seleccionamos  [ * ] MATE con la barra espaciadora
 
 Reiniciamos
 
-  sudo reboot
+    sudo reboot
 
 
   
