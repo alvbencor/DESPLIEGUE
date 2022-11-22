@@ -1,0 +1,102 @@
+:root {
+    --basalto: #6b7275;
+    --piedra:#ccc5bd;
+    --piedra--claro:#dfdfdf;
+    --rojo:#bb2730;
+    --naranja:#fe7b30;
+    --amarillo:#fdbd48;
+    --menta:#a1bc97;
+    --salvia:#67786e;
+    --verde:#40a84f;
+    --verdeOscuro:#025f4f;
+    --azulClaro:#a7c2d5;
+    --azul:#0492cb;
+    --azul-oscuro: #113e83;
+    --morado:#915b9e;
+    --uva:#704c6c;
+    --rosaClaro:#ecccdb;
+    --coral:#fe887e;
+    --rosaFondant:#dea1c2;
+    --teja:#ad5050;
+    --arcilla:#cb927c;
+    --marron:#a54b2b;
+    --pergamino:#c39a67;
+    --arena:#9c794d;
+    --beige:#f5cc82;
+}
+
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--piedra);
+    gap: 2rem;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+    width: 30vw;
+    height: 30vh;
+    background-color:var(--piedra--claro);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--basalto);
+    cursor: pointer;
+}
+
+.container:nth-of-type(2){
+
+    background-color: var(--coral);
+}
+
+.error{
+    font-size: 10rem;
+    margin: 0;
+    filter:opacity(.1);
+}
+.circulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+span{
+    color: var(--rojo);
+    font-size: 3rem;
+    font-weight: lighter;
+    letter-spacing: 1rem;
+
+}
+
+.bienvenida {
+    background-color: var(--beige);
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.bienvenida h2{
+    color: var(--teja);
+}
+
+.welcome {
+    background-color: var(--teja);
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.welcome h1{
+    color: var(--piedra--claro);
+}
+
+div.welcome h2{
+    color: var(--amarillo);
+}
