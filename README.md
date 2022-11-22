@@ -26,7 +26,9 @@
 
 ## Servidores web
 ><br>[Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/ServidoresWeb.pdf)<br><br>
-><br>[Mis puntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/Apuntes.md)<br><br>
+
+
+><br>[Mis Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidoresWeb/Apuntes.md)<br><br>
 1. Introducción
 2. HTTP
 3. Apache HTTP Server
