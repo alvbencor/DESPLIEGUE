@@ -5,6 +5,9 @@
 [Servidores web](#id2)<br>
 [Servidores de Aplicaciones: Docker](#id3)<br>
 
+
+> [Instalación Ubuntu server 22.04 + guest additions](https://github.com/alvbencor/DESPLIEGUE/blob/main/instUS.md)
+
 <div id='id1' /><br>
 
 ## Implantación de arquitecturas web
