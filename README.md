@@ -37,8 +37,8 @@
 6. Creación de host virtuales (hosting compartido)
 7. Instalación y configuración de módulos <br>
 
-       7.1 Autenticación http<br>
-       7.2 Autenticación HTTP con .htaccess<br>
+ - 7.1 Autenticación http<br>
+ - 7.2 Autenticación HTTP con .htaccess<br>
  
 8. Personalizar las páginas de error
 9. Configurar SSL/TLS en Apache
