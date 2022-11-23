@@ -38,8 +38,9 @@ Creamos los archivos de configuracion:
 
 Se recomienda copiar el 00-default.conf
 
+Habilitamos en sites-enabled
 
-
+incluimos en /etc/hosts la ip y el dominio
 
 
 
