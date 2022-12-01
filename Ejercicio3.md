@@ -11,7 +11,7 @@
 
 [Ejercicio 3](#Ejercicio3)
 
-
+> ### IMPORTANTE ejecutar comandos con sudo su
 
 
 ## <a name="Ejecutar">Ejecutar contenedor</a>
