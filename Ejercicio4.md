@@ -21,3 +21,4 @@ puerto del host al puerto asignado a Apache en el contenedor?
 
 -P
 
+¿Qué diferencia hay entre los contenedores apache2 y apache1? Los puertos. El creado con -P es aleatorio. 
