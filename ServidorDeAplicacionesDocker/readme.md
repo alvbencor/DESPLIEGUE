@@ -52,6 +52,20 @@ Es un paquete de código completado con las dependencias y herramientas necesari
 
 La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizados y replicados fácilmente por administradores de sistemas u otros codificadores sin necesidad de conocer el funcionamiento interno de la aplicación. 
 
+| Comando | Descripción |
+| --- | --- |
+| docker run *nombreImagen* | Ejecutar un contenedor |
+| docker run --name *nombreContenedor nombreImagen* | Se le puede dar un nombre concreto al contenedor con el comando **--name** pero no puede estar asignado a otro contenedor.|
+| docker run -d *nombreImagen | Ejecuta un contenedor en segundo plano |
+| docker run -it *nombreImagen* /bin/bash | permite ejecutar la consola del contenedor para poder trabajar con ella (-it : terminal interactivo). Para salir de la consola del contenedor: **Ctrl+p Ctrl+q**|
+| docker ps -a | Listar todos los contenedores en funcionamiento (**ps**) y si se quiere ver todos los que están parados **-a** |
+| docker ps --format *nombresCampos* | Listar contenedores indicando las columnas que se quieren mostrar en el listado. *nombresCampos* tendrá el siguiente formato: “table {{ .NombreCol1 }}\t{{.NombreCol2}}\t{{ .NombreColN }}” |
+| docker stop *ID/nombreContenedor* | Parar un contenedor en ejecución |
+| docker stop $(docker ps -a -q) | Parar todos los contenedores |
+| docker kill *ID/nombreContenedor* | forzar la parada con **kill** |
+| docker start *ID/nombreContenedor* | Volver a arrancar un contenedor parado con anterioridad |
+| docker rm *ID/nombreContenedor* | Para eliminar un contenedor |
+| docker rm $(docker ps -a -q) | Elimina todos los contenedores después de pararlos todos con *docker stop $(docker ps -a -q)* |
 
 
 ## Registro
