@@ -1,6 +1,6 @@
 # Tema 3: Docker
 
- <a name="index">
+<a name="index">
  
 ### INDEX<br>
  
@@ -13,6 +13,8 @@
  4. [Registro](#registro)<br>
  
  ----
+ 
+## <a name="introduccion">Introduccion</a>
 
 Docker es una plataforma de software que facilita la creación, implementación y ejecución de aplicaciones mediante el uso de contenedores.
 
