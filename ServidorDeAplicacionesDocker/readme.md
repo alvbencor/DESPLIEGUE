@@ -66,8 +66,7 @@ La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizad
 | docker start *ID/nombreContenedor* | Volver a arrancar un contenedor parado con anterioridad |
 | docker rm *ID/nombreContenedor* | Para eliminar un contenedor |
 | docker rm $(docker ps -a -q) | Elimina todos los contenedores después de pararlos todos con *docker stop $(docker ps -a -q)* |
-| docker build -t vieux/apache:2.0 . | Etiquetar una imagen (**-t , --tag**)|
-| 
+| docker build -t vieux/apache:2.0 . | Etiquetar una imagen (**-t , --tag**) |
 
 
 
