@@ -72,5 +72,5 @@ La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizad
 
 ## Registro
 
-Aplicación para gestionar almacenamiento y envío de imágenes de contenedores. 
+Aplicación para gestionar almacenamiento y envío de imágenes de contenedores. Pueden ser públicos o privados (DockerHub, Amazon Web Services, Aure, Google...)
 
