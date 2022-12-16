@@ -1,10 +1,20 @@
 # Tema 3: Docker
 
+ <a name="index">
+ 
+### INDEX<br>
+ 
+ 1. [Introducción](#introduccion)<br>
+ 2. [Imagen](#imagen)<br>
+  2.1 [Equivalencias](#equivalencias)
+ 3. [Contenedor](#contenedor)<br>
+ 4. [Registro](#registro)<br>
+
 Docker es una plataforma de software que facilita la creación, implementación y ejecución de aplicaciones mediante el uso de contenedores.
 
 Permite crear aplicaciones o servicios que sean independientes y portables, sin importar el sistema operativo o el hardware de cada máquina. Evita tener que instalar dependencias en el host o servidor o hacer uso de máquinas virtuales. 
 
-## Imagen
+  ## <a name="imagen">Imagen</a>
 
 Es un paquete ejecutable que incluye todo lo necesario para ejecutar un software.
 
@@ -34,7 +44,7 @@ En resumen, los contenedores son instancias en ejecución de una imagen y son lo
 | docker image build *nombreImagen:nombreEtiqueta* | Igual que el anterior |
 
 
-### Equivalencias
+###  <a name="equivalencias">Equivalencias</a>
 
 - **docker images** tiene el mismo resultado que **docker image ls**
 
@@ -44,7 +54,7 @@ En resumen, los contenedores son instancias en ejecución de una imagen y son lo
 
 - **docker push imagen** es equivalente a **docker image push imagen**
 
-## Contenedor
+## <a name="contenedor">Contenedor</a>
 
 Instancia en ejecución de una imagen.
 
@@ -70,7 +80,7 @@ La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizad
 
 
 
-## Registro
+## <a name="registro">Registro</a>
 
 Aplicación para gestionar almacenamiento y envío de imágenes de contenedores. Pueden ser públicos o privados (DockerHub, Amazon Web Services, Aure, Google...)
 
