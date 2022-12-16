@@ -86,7 +86,7 @@ La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizad
 | --- | --- |
 | docker run *nombreImagen* | Ejecutar un contenedor |
 | docker run --name *nombreContenedor nombreImagen* | Se le puede dar un nombre concreto al contenedor con el comando **--name** pero no puede estar asignado a otro contenedor.|
-| docker run -d *nombreImagen | Ejecuta un contenedor en segundo plano |
+| docker run -d *nombreImagen* | Ejecuta un contenedor en segundo plano |
 | docker run -it *nombreImagen* /bin/bash | permite ejecutar la consola del contenedor para poder trabajar con ella (-it : terminal interactivo). Para salir de la consola del contenedor: **Ctrl+p Ctrl+q**|
 | docker ps -a | Listar todos los contenedores en funcionamiento (**ps**) y si se quiere ver todos los que están parados **-a** |
 | docker ps --format *nombresCampos* | Listar contenedores indicando las columnas que se quieren mostrar en el listado. *nombresCampos* tendrá el siguiente formato: “table {{ .NombreCol1 }}\t{{.NombreCol2}}\t{{ .NombreColN }}” |
