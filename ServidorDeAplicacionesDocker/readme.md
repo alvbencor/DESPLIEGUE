@@ -6,10 +6,10 @@
  
  1. [Introducción](#introduccion)<br>
  2. [Imagen](#imagen)<br>
-  2.1 [Comandos de imágenes](#comandosImagen)<br>
+  2.1 [Comandos de imágenes](#cimagen)<br>
   2.1 [Equivalencias](#equivalencias)<br>
  3. [Contenedor](#contenedor)<br>
-  3.1 [Comandos de contenedores](#comandosContenedor)<br>
+  3.1 [Comandos de contenedores](#ccontenedor)<br>
  4. [Registro](#registro)<br>
  
  ----
@@ -35,7 +35,7 @@ Para ejecutar la aplicación o servicio, se crea una instancia de esa imagen, el
 
 En resumen, los contenedores son instancias en ejecución de una imagen y son los que realmente ponen en marcha las aplicaciones y servicios de esa imagen. A partir de una misma imagen, es posible ejecutar diferentes contenedores. 
  
- ### <a name="comandosImagen">Comandos de imagen</a>
+ ### <a name="cimagen">Comandos de imagen</a>
 
 | Comando | Descripción |
 | --- | --- |
@@ -80,7 +80,7 @@ Es un paquete de código completado con las dependencias y herramientas necesari
 
 La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizados y replicados fácilmente por administradores de sistemas u otros codificadores sin necesidad de conocer el funcionamiento interno de la aplicación. 
  
-### <a name="comandosContenedor">Comandos de contenedores</a>
+### <a name="ccontenedor">Comandos de contenedores</a>
 
 | Comando | Descripción |
 | --- | --- |
