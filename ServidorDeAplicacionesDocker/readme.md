@@ -6,9 +6,13 @@
  
  1. [Introducción](#introduccion)<br>
  2. [Imagen](#imagen)<br>
+  2.1 [Comandos](#comandosImagen)
   2.1 [Equivalencias](#equivalencias)
  3. [Contenedor](#contenedor)<br>
+  3.1 [Comandos](#comandosContenedor)
  4. [Registro](#registro)<br>
+ 
+ ----
 
 Docker es una plataforma de software que facilita la creación, implementación y ejecución de aplicaciones mediante el uso de contenedores.
 
@@ -28,6 +32,8 @@ Una imagen podría contener un sistema operativo ubuntu con un servidor apache y
 Para ejecutar la aplicación o servicio, se crea una instancia de esa imagen, el contenedor, que se ejecutará en el host de Docker. Las imágenes, al ser plantillas, van a ser usadas para crear nuevos contenedores y nunca cambian a no ser que se cree una nueva a partir de un contenedor. 
 
 En resumen, los contenedores son instancias en ejecución de una imagen y son los que realmente ponen en marcha las aplicaciones y servicios de esa imagen. A partir de una misma imagen, es posible ejecutar diferentes contenedores. 
+ 
+ ### <a name="comandosImagen">Comandos de imagen</a>
 
 | Comando | Descripción |
 | --- | --- |
@@ -71,6 +77,8 @@ Instancia en ejecución de una imagen.
 Es un paquete de código completado con las dependencias y herramientas necesarias para poder ejecutar dicho código (librerías del sistema, entorno de ejecución, cualquier tipo de configuracion ...) describiendolo en un archivo de configuracion llamado **DockerFile**.
 
 La **ventaja** del uso de contenedores es que pueden ser versionados, reutilizados y replicados fácilmente por administradores de sistemas u otros codificadores sin necesidad de conocer el funcionamiento interno de la aplicación. 
+ 
+### <a name="comandosContenedor">Comandos de contenedores</a>
 
 | Comando | Descripción |
 | --- | --- |
