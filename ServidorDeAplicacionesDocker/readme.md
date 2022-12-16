@@ -6,10 +6,10 @@
  
  1. [Introducción](#introduccion)<br>
  2. [Imagen](#imagen)<br>
-  2.1 [Comandos](#comandosImagen)<br>
+  2.1 [Comandos de imágenes](#comandosImagen)<br>
   2.1 [Equivalencias](#equivalencias)<br>
  3. [Contenedor](#contenedor)<br>
-  3.1 [Comandos](#comandosContenedor)<br>
+  3.1 [Comandos de contenedores](#comandosContenedor)<br>
  4. [Registro](#registro)<br>
  
  ----
