@@ -14,7 +14,7 @@
 > MacBook-Pro-de-Alvaro:dawes-varios alvarobenitocortes$ lsof -i -P|grep -i "8080"<br>
 java      **99618** alvarobenitocortes   39u  IPv6 0xb8b1bc3dfba578ef      0t0  TCP *:8080 (LISTEN)<br>
 <br>
-En este caso: kill -9 99618<br>
+En este caso: kill -9 `99618` <br>
 
 
     kill -9 numero-id
