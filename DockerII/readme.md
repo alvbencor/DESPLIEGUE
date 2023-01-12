@@ -24,8 +24,10 @@ En este caso: kill -9 `99618` <br>
 
 ## Comandos Docker
 
-Do you know what's inside your image?
-
 
 #### docker sbom
-The new `docker sbom` CLI command displays the SBOM (Software Bill Of Materials) of any Docker image. This feature outputs the SBOM in a table or can be exported into SPDX and CycloneDX formats.
+
+Para saber qué hay dentro de las imágenes
+
+El nuevo comando `docker sbom` CLI muestra el SBOM (Software Bill Of Materials) de cualquier imagen de Docker. 
+Saca el SBOM en una tabla o lo exporta en formato SPDX y CycloneDX.
