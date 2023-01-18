@@ -1,2 +1,52 @@
 ## Docker
 
+
+
+## Cómo crear una imagen de una aplicación Node.js
+
+    package.json:
+    ---
+    
+    {
+      "name": "mi-nodejs-server",
+      "version": "1.0",
+      "main": "server.js",
+      "dependencies": {
+        "express": "^4.17.1",
+        "body-parser": "1.19.0"
+      }
+    }
+
+
+
+
+
+    Dockerfile:
+    ---
+
+    FROM node:14
+
+    WORKDIR /app
+
+    COPY . .
+
+    RUN npm install
+
+    EXPOSE 3000
+
+    CMD [ "node", "app.mjs"]
+
+
+Este archivo Dockerfile es un ejemplo de cómo crear una imagen de una aplicación Node.js.
+
+La primera línea, "FROM node:14", indica que esta imagen se basará en la imagen oficial de Node.js versión 14. Esto significa que la imagen resultante tendrá Node.js ya instalado en ella.
+
+La segunda línea, "WORKDIR /app", establece el directorio de trabajo en el contenedor en "/app". Todos los comandos subsecuentes se ejecutarán en este directorio.
+
+La tercera línea, "COPY . .", copia todos los archivos del directorio actual en el host al directorio de trabajo en el contenedor.
+
+La cuarta línea, "RUN npm install", ejecuta el comando "npm install" en el contenedor. Esto instalará todas las dependencias de la aplicación Node.js especificadas en el archivo package.json.
+
+La quinta línea, "EXPOSE 3000", indica al contenedor que debe escuchar en el puerto 3000. Esto permite que otros contenedores o el host conecten a la aplicación Node.js en ese puerto.
+
+La sexta línea, "CMD [ "node", "app.mjs"]", especifica el comando que se ejecutará cuando se inicie el contenedor. En este caso, se ejecutará el archivo "app.mjs" usando el comando "node".
