@@ -18,6 +18,7 @@
     }
 
 
+Archivo Dockerfile:
 
 
 
@@ -50,3 +51,16 @@ La cuarta línea, "RUN npm install", ejecuta el comando "npm install" en el cont
 La quinta línea, "EXPOSE 3000", indica al contenedor que debe escuchar en el puerto 3000. Esto permite que otros contenedores o el host conecten a la aplicación Node.js en ese puerto.
 
 La sexta línea, "CMD [ "node", "app.mjs"]", especifica el comando que se ejecutará cuando se inicie el contenedor. En este caso, se ejecutará el archivo "app.mjs" usando el comando "node".
+
+
+
+## Crear una imagen a partir de un dockerfile
+
+        docker build -t nombre_de_la_imagen .
+        
+*El nombre de la imagen siempre en minusculas. 
+***-t*** añade la etiqueta
+
+
+
+
