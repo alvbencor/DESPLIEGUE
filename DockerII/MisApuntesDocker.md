@@ -61,6 +61,14 @@ La sexta línea, "CMD [ "node", "app.mjs"]", especifica el comando que se ejecut
 *El nombre de la imagen siempre en minusculas. 
 ***-t*** añade la etiqueta
 
+Ejercicio2: docker build -t alvaro/ejercicio2b .
 
 
+
+## Ejecutar 
+
+        docker run -p 80:80 nombre_de_la_imagen
+        
+
+Ejercicio 2: docker run -p 80:80 alvaro/ejercicio2b
 
