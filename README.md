@@ -50,5 +50,5 @@
 ><br>[Mis Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/ServidorDeAplicacionesDocker/readme.md)<br><br>
 
 ## Docker II
-><br>[Apuntes](https://github.com/alvbencor/DESPLIEGUE/tree/main/DockerII/DockerII.pdf)<br><br>
+><br>[Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/DockerII/4.%20Contenedores%20II.pdf)<br><br>
 ><br>[Mis Apuntes](https://github.com/alvbencor/DESPLIEGUE/blob/main/DockerII/MisApuntesDocker.md)<br><br>
