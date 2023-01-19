@@ -72,3 +72,24 @@ Ejercicio2: docker build -t alvaro/ejercicio2b .
 
 Ejercicio 2: docker run -p 80:80 alvaro/ejercicio2b
 
+
+
+
+## Como instalar Docker en ubuntu server sobre virtualbox
+
+Actualice la lista de paquetes ejecutando el comando: 
+
+        sudo apt-get update
+        
+        
+Instale Docker ejecutando el comando: 
+
+        sudo apt-get install docker.io -y
+        
+Inicie el servicio de Docker ejecutando el comando: 
+
+        sudo systemctl start docker
+        
+Verifique que Docker se está ejecutando correctamente ejecutando el comando: 
+
+        sudo docker run hello-world
