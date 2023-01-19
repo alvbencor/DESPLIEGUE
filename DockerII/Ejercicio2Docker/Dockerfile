@@ -1,8 +1,12 @@
-FROM node:alpine:10-alpine
+FROM node:14
+
+WORKDIR /app
+
+COPY . .
 
 RUN npm install
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "node", "server.js"]
 
