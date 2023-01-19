@@ -93,3 +93,9 @@ Inicie el servicio de Docker ejecutando el comando:
 Verifique que Docker se está ejecutando correctamente ejecutando el comando: 
 
         sudo docker run hello-world
+        
+        
+
+## Instalar Visual Studio Code en Ubuntu
+
+    sudo snap install --classic code
