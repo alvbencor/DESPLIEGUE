@@ -40,17 +40,39 @@ Archivo Dockerfile:
 
 Este archivo Dockerfile es un ejemplo de cómo crear una imagen de una aplicación Node.js.
 
-La primera línea, "FROM node:14", indica que esta imagen se basará en la imagen oficial de Node.js versión 14. Esto significa que la imagen resultante tendrá Node.js ya instalado en ella.
+La primera línea, **"FROM node:14"**, indica que esta imagen se basará en la imagen oficial de Node.js versión 14. Esto significa que la imagen resultante tendrá Node.js ya instalado en ella.
 
-La segunda línea, "WORKDIR /app", establece el directorio de trabajo en el contenedor en "/app". Todos los comandos subsecuentes se ejecutarán en este directorio.
+La segunda línea, **"WORKDIR /app"**, establece el directorio de trabajo en el contenedor en "/app". Todos los comandos subsecuentes se ejecutarán en este directorio.
 
-La tercera línea, "COPY . .", copia todos los archivos del directorio actual en el host al directorio de trabajo en el contenedor.
+La tercera línea, **"COPY . ."**, copia todos los archivos del directorio actual en el host al directorio de trabajo en el contenedor.
 
-La cuarta línea, "RUN npm install", ejecuta el comando "npm install" en el contenedor. Esto instalará todas las dependencias de la aplicación Node.js especificadas en el archivo package.json.
+La cuarta línea, **"RUN npm install"**, ejecuta el comando "npm install" en el contenedor. Esto instalará todas las dependencias de la aplicación Node.js especificadas en el archivo package.json.
 
-La quinta línea, "EXPOSE 3000", indica al contenedor que debe escuchar en el puerto 3000. Esto permite que otros contenedores o el host conecten a la aplicación Node.js en ese puerto.
+La quinta línea, **"EXPOSE 3000"**, indica al contenedor que debe escuchar en el puerto 3000. Esto permite que otros contenedores o el host conecten a la aplicación Node.js en ese puerto.
 
-La sexta línea, "CMD [ "node", "app.mjs"]", especifica el comando que se ejecutará cuando se inicie el contenedor. En este caso, se ejecutará el archivo "app.mjs" usando el comando "node".
+La sexta línea, **"CMD [ "node", "app.mjs"]"**, especifica el comando que se ejecutará cuando se inicie el contenedor. En este caso, se ejecutará el archivo "app.mjs" usando el comando "node".
+
+## Diferencia entre las instrucciones RUN y CMD
+
+**RUN** se ejecuta al construir una imagen para realizar una acción, creando una capa nueva.
+
+**CMD** se encarga de pasar valores predeterminados a un contenedor, los cuales se ejecutaran cuando el contenedor se inicialice. Sólo de be haber una instucción CDM en un Dockerfile, y si hay más, sólo se ejecutará el último.
+
+
+### **docker attach
+
+Este comando permite, indicando un contenedor concreto, vincular la entrada y salida de errores estándar del mismo, al terminal que se ejecute.  Se tiene que introducir el **id o el nombre a vincular**. Cuando se ejecuta un contenedor sin la opcion d, el contenedor se ejecuta por defecto en **modo vinculado**.
+
+### **docker logs**
+
+Para ver los logs que se han imprimido de un contenedor en concreto. Se indica su nombre o el id. Con la opcion -f se puede activar el modo seguimiento de logs.
+
+
+### **docker run -it
+
+En el caso de que una aplicación no sea accesible a traves del navegador al ejecutar un contenedor en concreto, 
+
+
 
 
 
