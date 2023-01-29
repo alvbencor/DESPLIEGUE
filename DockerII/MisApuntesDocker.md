@@ -70,7 +70,35 @@ Para ver los logs que se han imprimido de un contenedor en concreto. Se indica s
 
 ### **docker run -it
 
-En el caso de que una aplicación no sea accesible a traves del navegador al ejecutar un contenedor en concreto, 
+En el caso de que una aplicación no sea accesible a traves del navegador al ejecutar un contenedor en concreto, se podrá ver en consola su ejecución pero no interactuar con ella.
+
+Con la opción **-i** se mantiene el canal de entrada (stdin) del contenedor, abriendo el contenedor en modo interactivo.
+
+Con la opción **-t** se asocia una **tty** (terminal).
+
+Es posible incluir las dos opciones como **-it**
+
+Esto sirve para aplicaciones de consola.
+
+### **docker run -rm**
+
+Con esta opción se elimina el contenedor después de ejecutarse. El contenedor no pasará de ejecución a parado, sino que desaparecerá.
+
+### **docker image inspect**
+
+Con este comando se obtiene información de la imagen, como las capas q conforman la imagen (las suyas y las de la imagen base), configuración para los futuros contenedores que se ejecuten a partir de ella, sistema operativo de la imagen, etc..
+
+### **docker tag**
+
+Permite renombrar una imagen. Si se quiere subir una imagen ya creada a un repositorio, pero u nombre no coincide con el del repo, se puede modificar ese nombre con el comando 
+
+        docker tag nombreAntiguo nombreNuevo
+
+Es posible incluir la etiqueta de la misma forma que se ha visto hasta el momento:
+
+        docker tag nombreAntiguo:tag nombreNuevo:tag
+
+Este renombre es más bien una clonación. Se creará una nueva imagen, exacta a la anterior con un nombre diferente. 
 
 
 
