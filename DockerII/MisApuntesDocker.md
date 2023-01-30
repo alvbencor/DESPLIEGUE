@@ -59,7 +59,7 @@ La sexta línea, **"CMD [ "node", "app.mjs"]"**, especifica el comando que se ej
 **CMD** se encarga de pasar valores predeterminados a un contenedor, los cuales se ejecutaran cuando el contenedor se inicialice. Sólo de be haber una instucción CDM en un Dockerfile, y si hay más, sólo se ejecutará el último.
 
 
-### **docker attach
+### **docker attach**
 
 Este comando permite, indicando un contenedor concreto, vincular la entrada y salida de errores estándar del mismo, al terminal que se ejecute.  Se tiene que introducir el **id o el nombre a vincular**. Cuando se ejecuta un contenedor sin la opcion d, el contenedor se ejecuta por defecto en **modo vinculado**.
 
@@ -68,7 +68,7 @@ Este comando permite, indicando un contenedor concreto, vincular la entrada y sa
 Para ver los logs que se han imprimido de un contenedor en concreto. Se indica su nombre o el id. Con la opcion -f se puede activar el modo seguimiento de logs.
 
 
-### **docker run -it
+### **docker run -it**
 
 En el caso de que una aplicación no sea accesible a traves del navegador al ejecutar un contenedor en concreto, se podrá ver en consola su ejecución pero no interactuar con ella.
 
@@ -80,7 +80,7 @@ Es posible incluir las dos opciones como **-it**
 
 Esto sirve para aplicaciones de consola.
 
-### **docker run -rm**
+### **docker run --rm**
 
 Con esta opción se elimina el contenedor después de ejecutarse. El contenedor no pasará de ejecución a parado, sino que desaparecerá.
 
