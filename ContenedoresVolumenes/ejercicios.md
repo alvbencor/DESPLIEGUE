@@ -15,23 +15,26 @@ Dockerfile:
 
 Construir la imagen: 
 
-    docker build -t alvaro/ejercicio_uno
+    docker build -t alvaro/ejercicio_uno .
+    
+
+#### OJO EL PUNTO AL FINAL
     
     
 Ejecutar el contenedor 
 
-    docker run alvaro/ejercicio_uno
+    docker run -it alvaro/ejercicio_uno
     
 
 Ejecutar el contenedor para que se elimine al terminar 
 
-    docker run --rm alvaro/ejercicio_uno
+    docker run --rm -it alvaro/ejercicio_uno
     
     
 Un volumen de nombre volumen1 en el que se persistirá la información 
 almacenada en la carpeta BBDD...
 
-    docker run --rm -v:nombreVolumen:unbicacionInterna alvaro/ejercicio_uno
+    docker run -it -v nombreVolumen:unbicacionInterna alvaro/ejercicio_uno
     
 
     
