@@ -23,4 +23,15 @@ Ejecutar el contenedor
     docker run alvaro/ejercicio_uno
     
 
-Ejecutar el contenedor para que se elimine al term
+Ejecutar el contenedor para que se elimine al terminar 
+
+    docker run --rm alvaro/ejercicio_uno
+    
+    
+Un volumen de nombre volumen1 en el que se persistirá la información 
+almacenada en la carpeta BBDD...
+
+    docker run --rm -v:nombreVolumen:unbicacionInterna alvaro/ejercicio_uno
+    
+
+    
