@@ -36,5 +36,38 @@ almacenada en la carpeta BBDD...
 
     docker run -it -v nombreVolumen:unbicacionInterna alvaro/ejercicio_uno
     
+# Ejercicio3
+
+Para establecer el puerto en el que escucha un servidor en Docker a través de una variable de entorno, hay que seguir los siguientes pasos:
+
+Definir la variable de entorno: En la sección de "Environment" de su archivo Dockerfile, defina la variable de entorno que será utilizada para establecer el puerto. Por ejemplo:
+
+
+    ENV PORT 8080
+    
+**(Solo si se necesita)** Utilizar la variable de entorno en el contenedor: En el script de inicio o en el comando que se utiliza para ejecutar el servidor en el contenedor, utilice la variable de entorno para establecer el puerto en el que el servidor escuchará. Por ejemplo:
+
+
+    CMD ["python", "app.py"]
+
+
+Exponer el puerto: Finalmente, en el archivo Dockerfile, especifique el puerto que se debe exponer utilizando la variable de entorno:
+
+
+    EXPOSE $PORT
+    
+    
+
+Dockerfile
+
+    FROM NODE:14
+    WORKDIR /app
+    COPY . .
+    RUN npm install
+    ENV PORT 80
+    EXPOSE $PORT
+    CMD ['node','app.mjs']
+    
+    
 
     
