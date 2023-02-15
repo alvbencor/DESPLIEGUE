@@ -56,7 +56,9 @@ Exponer el puerto: Finalmente, en el archivo Dockerfile, especifique el puerto q
 
     EXPOSE $PORT
     
-    
+---
+
+*Hay que cambiar en el app.listen(3000) de app.msj el número de puerto a ***(process.env.PORT)***.
 
 Dockerfile
 
@@ -64,7 +66,7 @@ Dockerfile
     WORKDIR /app
     COPY . .
     RUN npm install
-    ENV PORT 80
+    ENV PORT=80
     EXPOSE $PORT
     CMD ['node','app.mjs']
     
