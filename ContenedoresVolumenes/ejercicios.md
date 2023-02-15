@@ -69,5 +69,6 @@ Dockerfile
     CMD ['node','app.mjs']
     
     
+Ejecutar la imagen  
 
-    
+        docker run -p 80:80 alvaro/node-app
