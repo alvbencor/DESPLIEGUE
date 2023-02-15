@@ -74,3 +74,10 @@ Dockerfile
 Ejecutar la imagen  
 
         docker run -p 80:80 alvaro/node-app
+
+
+Para ejecutar un segundo contenedor con el puerto 8000 asignado a la variable de entorno PORT, se puede utilizar el siguiente comando:
+
+        docker run -p 8000:80 -e PORT=8000 <nombre-de-la-imagen>
+        
+En este comando, se está mapeando el puerto 8000 del host al puerto 80 del contenedor con la opción -p 8000:80, y se está asignando el valor 8000 a la variable de entorno PORT con la opción -e PORT=8000.
