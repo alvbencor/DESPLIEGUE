@@ -27,6 +27,22 @@ Un volumen con nombre no se indica en el fichero Dockerfile sino que se declarar
 arrancar el contenedor incluyendo la opción -v:
 
     -v nombreVol:ubicacionInternaDelContenedor
+    
+    
+
+    docker run -d -v nombre_del_volumen:/ruta/en/el/contenedor nombre_de_la_imagen
+
+
+Ejemplo 
+
+    docker run -d -v datos:/usr/share/nginx/html nginx
+    
+Para poder arrancar un contenedor con un volumen con nombre es necesario que el volumen exista previamente.
+
+    docker volume create nombre_del_volumen
+    
+
+
 
 
 
